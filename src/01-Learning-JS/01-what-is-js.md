@@ -218,7 +218,7 @@ console.log(
 
 if (favFood2.length > 0) {
   // Redeclare favFood1 within this scope only
-  ___ favFood1 = "Picked Vegetables"
+  let favFood1 = "Picked Vegetables"
 
   console.log(
     "jk! ",
