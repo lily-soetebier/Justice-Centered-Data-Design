@@ -190,7 +190,7 @@ There are other conventions and rules, but we don't need to belabor them right n
 * August 27th 2025
 * Top 3 favorite foods:
 *   1. Pierogis
-*   2. Any and all Korean BBQ
+*   2. Spicy Pork Belly
 *   3. Pickled Vegetables */
 
 /**
@@ -207,8 +207,8 @@ There are other conventions and rules, but we don't need to belabor them right n
  *    that will make sure each favorite food is
  *    logged to the correct place in the console.
 **/
-___ _faveFood1_ = "Enter_#1_Favorite_Food_Here"
-___ _faveFood2_ = "Enter_#2_Favorite_Food_Here"
+___ _faveFood1_ = "Pierogis"
+___ _faveFood2_ = "Spicy Pork Belly"
 
 console.log(
   "Ok, so y'all know that my #1 favorite food is ",
