@@ -77,8 +77,13 @@ Primitives enable you to perform fundamental data operations.
       lessThan5: true,
       moreThan5: false,
    }
-   var price = 7
+   var price
    var weatherTemp = 78
+
+   //start of "dialogue"
+   console.log(
+    "Day 1",
+   )
 
    if(weatherTemp > 68) {
       console.log(
@@ -86,35 +91,46 @@ Primitives enable you to perform fundamental data operations.
          ": Hello, I would like to order a ",
          orderDrink.hotWeather,
       )
+      price = 7
+      console.log(
+         cashierName,
+         ": Okay, your total will be ",
+         price,
+      )
    }
 
-   if(weatherTemp < 68) {
+   if (price > 5){
+    console.log(
+      "Coffee is affordable:",
+      affordableCoffee.moreThan5,
+    )
+   }
+
+   console.log(
+    "Day 2",
+   )
+   weatherTemp = 65
+
+    if (weatherTemp <= 68) {
       console.log(
          orderName,
          ": Hello, I would like to order a ",
          orderDrink.coolWeather,
       )
+      price = 4.5
+      console.log(
+        cashierName,
+        ": Okay, your total will be ",
+        price
+      )
    }
-
-   console.log(
-      cashierName,
-      ": Okay, your total will be ",
-      price,  
-   )
-
-   if(price > 5) {
-    console.log(
-      "Coffee is affordable: ",
-      affordableCoffee.moreThan5,
-    )
-   }
-  
-  if(price < 5) {
+   if (price < 5) {
     console.log(
       "Coffee is affordable: ",
       affordableCoffee.lessThan5,
     )
-  }
+   }
+  
 
 ```
 
