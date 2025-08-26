@@ -62,8 +62,20 @@ Primitives enable you to perform fundamental data operations.
 3. Print them all to the console with `console.log()`.
 4. Check your work, as you go, by opening the browser console with the **Inspect Element** tool.
 
-```javascript
-// Write your code in here
+```js
+//Declaring all the Variables
+let orderName = "Lily"
+let orderDrink = {
+  hotWeather: "Citrus Espresso Tonic",
+  coolWeather: "Hot Oat Milk Latte with Cinnamon",
+}
+let numOfDrink = 1
+let affordableCoffee {
+  lessThan5 = true,
+  moreThan5 = false,
+}
+const price = 7
+
 ```
 
 ## Submission
