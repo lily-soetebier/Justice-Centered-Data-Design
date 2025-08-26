@@ -64,27 +64,58 @@ Primitives enable you to perform fundamental data operations.
 
 ```js
 //Declaring all the Variables
-var orderName = "Lily"
-var orderDrink = {
-  hotWeather: "Citrus Espresso Tonic",
-  coolWeather: "Hot Oat Milk Latte with Cinnamon",
-}
+   var orderName = "Lily"
+   var cashierName  = "Hannah"
+   var orderDrink = {
+      hotWeather: "Citrus Espresso Tonic",
+      coolWeather: "Hot Oat Milk Latte with Cinnamon",
+   }
 
-var numOfDrink = 1
+   var numOfDrink = 1
 
-var affordableCoffee = {
-  lessThan5: true,
-  moreThan5: false,
-}
-var price = 7
-var weatherTemp = 78
+   var affordableCoffee = {
+      lessThan5: true,
+      moreThan5: false,
+   }
+   var price = 7
+   var weatherTemp = 78
+
+   if(weatherTemp > 68) {
+      console.log(
+         orderName,
+         ": Hello, I would like to order a ",
+         orderDrink.hotWeather,
+      )
+   }
+
+   if(weatherTemp < 68) {
+      console.log(
+         orderName,
+         ": Hello, I would like to order a ",
+         orderDrink.coolWeather,
+      )
+   }
+
+   console.log(
+      cashierName,
+      ": Okay, your total will be ",
+      price,  
+   )
+
+   if(price > 5) {
+    console.log(
+      "Coffee is affordable: ",
+      affordableCoffee.moreThan5,
+    )
+   }
   
-  if(weatherTemp > 75) {
-     console.log(
-     "Hello, I would like to order a ",
-      orderDrink.hotWeather,
-     )
+  if(price < 5) {
+    console.log(
+      "Coffee is affordable: ",
+      affordableCoffee.lessThan5,
+    )
   }
+
 ```
 
 ## Submission
