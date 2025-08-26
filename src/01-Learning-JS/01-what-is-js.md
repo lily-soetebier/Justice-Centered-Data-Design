@@ -185,11 +185,13 @@ There are other conventions and rules, but we don't need to belabor them right n
       <source src="../assets/vids/01-js/01-web-console.mp4" type="video/mp4" />
     </video>
 
-```javascript
-// Convert this into a multiline comment
-// that includes your name, date,
-// and top 3 favorite foods, where
-// each set of info should be on a new line.
+```js
+/* Lily Soetebier
+* August 27th 2025
+* Top 3 favorite foods:
+*   1. Pierogis
+*   2. Any and all Korean BBQ
+*   3. Pickled Vegetables */
 
 /**
  * 1. Replace the value in-between the
