@@ -64,18 +64,27 @@ Primitives enable you to perform fundamental data operations.
 
 ```js
 //Declaring all the Variables
-let orderName = "Lily"
-let orderDrink = {
+var orderName = "Lily"
+var orderDrink = {
   hotWeather: "Citrus Espresso Tonic",
   coolWeather: "Hot Oat Milk Latte with Cinnamon",
 }
-let numOfDrink = 1
-let affordableCoffee {
-  lessThan5 = true,
-  moreThan5 = false,
-}
-const price = 7
 
+var numOfDrink = 1
+
+var affordableCoffee = {
+  lessThan5: true,
+  moreThan5: false,
+}
+var price = 7
+var weatherTemp = 78
+  
+  if(weatherTemp > 75) {
+     console.log(
+     "Hello, I would like to order a ",
+      orderDrink.hotWeather,
+     )
+  }
 ```
 
 ## Submission
