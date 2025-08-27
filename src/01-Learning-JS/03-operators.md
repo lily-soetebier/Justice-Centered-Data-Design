@@ -218,21 +218,21 @@ First, go back to the last chapter and grab the suite of primitives that you cre
 ```js
 // variables from the last exercise
  var orderName = "Lily"
-   var cashierName  = "Hannah"
-   var orderDrink = {
-      hotWeather: "Citrus Espresso Tonic",
-      coolWeather: "Hot Oat Milk Latte with Cinnamon",
-   }
+var cashierName  = "Hannah"
+var orderDrink = {
+   hotWeather: "Citrus Espresso Tonic",
+   coolWeather: "Hot Oat Milk Latte with Cinnamon",
+}
 
-   var numOfDrink = 1
+var numOfDrink = 1
 
-   var affordableCoffee = {
-      lessThan5: true,
-      moreThan5: false,
-   }
-   var priceTonic = 7
-   var priceLatte = 4.5
-   var weatherTemp = 78
+var affordableCoffee = {
+   lessThan5: true,
+   moreThan5: false,
+}
+var priceTonic = 7
+var priceLatte = 4.5
+var weatherTemp = 78
 
 // suite of operations
 console.log(
@@ -240,11 +240,12 @@ console.log(
   weatherTemp < 68,
 )
 
+let totalPrice = priceTonic + priceLatte
+
 console.log (
   orderDrink.hotWeather + ": $" + priceTonic,
   orderDrink.coolWeather + ": $" + priceLatte,
-  "Your total is: " = (priceTonic + priceLatte),
-
+  "Your total is: $" + totalPrice,
 )
 
 
