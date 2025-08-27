@@ -217,7 +217,21 @@ First, go back to the last chapter and grab the suite of primitives that you cre
 
 ```js
 // variables from the last exercise
+ var orderName = "Lily"
+   var cashierName  = "Hannah"
+   var orderDrink = {
+      hotWeather: "Citrus Espresso Tonic",
+      coolWeather: "Hot Oat Milk Latte with Cinnamon",
+   }
 
+   var numOfDrink = 1
+
+   var affordableCoffee = {
+      lessThan5: true,
+      moreThan5: false,
+   }
+   var price
+   var weatherTemp = 78
 ```
 
 ## Submission
