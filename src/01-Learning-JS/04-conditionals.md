@@ -276,7 +276,15 @@ Use the following console logs:
 - `else`: `console.log('Person is more than 30 years old.')`
 
 ```js
-// Your code here
+if(person3Age < 30) {
+  console.log('Person is less than 30 years old.')
+}
+else if(person3Age == 30) {
+  console.log('Person is exactly 30 years old.')
+}
+else {
+  console.log('Person is more than 30 years old.')
+}
 ```
 
 ## E6 - Conditional with numbers and an object!
