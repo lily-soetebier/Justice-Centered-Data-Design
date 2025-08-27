@@ -230,8 +230,24 @@ First, go back to the last chapter and grab the suite of primitives that you cre
       lessThan5: true,
       moreThan5: false,
    }
-   var price
+   var priceTonic = 7
+   var priceLatte = 4.5
    var weatherTemp = 78
+
+// suite of operations
+console.log(
+  weatherTemp > 68,
+  weatherTemp < 68,
+)
+
+console.log (
+  orderDrink.hotWeather + ": $" + priceTonic,
+  orderDrink.coolWeather + ": $" + priceLatte,
+  "Your total is: " = (priceTonic + priceLatte),
+
+)
+
+
 ```
 
 ## Submission
