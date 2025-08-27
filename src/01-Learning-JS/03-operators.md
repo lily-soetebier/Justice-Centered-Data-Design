@@ -236,8 +236,11 @@ var weatherTemp = 78
 
 // suite of operations
 console.log(
+  "The weather is greater than 68: ",
   weatherTemp > 68,
+  "The weather is less than 68: ",
   weatherTemp < 68,
+  "The temperature is: " + weatherTemp,
 )
 
 let totalPrice = priceTonic + priceLatte
