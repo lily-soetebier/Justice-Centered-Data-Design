@@ -336,7 +336,12 @@ if (childrenTotal['person2']) {
 ```
 
 ```js
-// Your code here
+if (childrenTotal.person1 != 0) {
+  console.log('Person has children.')
+}
+if (childrenTotal.person2 != 0) {
+  console.log('Person has children.')
+}
 ```
 
 ## E8
