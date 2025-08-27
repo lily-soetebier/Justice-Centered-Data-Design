@@ -57,10 +57,10 @@ A common conditional will consist of three lines:
     ```
 
 The latest JS has some formatting tricks with conditionals. For example, you can also remove the curly braces:
-
+<!-- 
 ```js
 if (beyonce == "Grammy award-winner") console.log("Congratulations, Beyonce!")
-```
+``` -->
 
 ```javascript
 if (beyonce == "Grammy award-winner") console.log("Congratulations, Beyonce!")
@@ -80,7 +80,7 @@ You can add even more complexity in a conditional by adding an `else` statement.
 
 An `else` comes after an `if` statement and should be formatted it the same way.
 
-```js
+<!-- ```js
 let beyonceCheck = "Grammy award-winner"
 beyonceCheck = "not a Grammy award-winner this year"
 
@@ -90,7 +90,7 @@ if (beyonceCheck == "Grammy award-winner") {
 else {
   console.log("They messed up, Beyonce.")
 }
-```
+``` -->
 
 ```javascript
 let beyonceCheck = "Grammy award-winner"
@@ -202,7 +202,9 @@ Write an `if` statement that reports whether `person1Age` is less than 30 years 
 Use the following console log, when the condition is `true`: `console.log("Person is less than 30 years old and married.")`
 
 ```js
-// Your code here
+  if(person1Age < 30 && person1Profession == "married") {
+    console.log("Person is less than 30 years old and married.")
+  }
 ```
 
 ## E4
