@@ -374,7 +374,9 @@ let person1 = {
   profession: "married"
 }
 
-// Your code here
+if (person1.profession == "married") {
+  console.log('Person is married.')
+}
 ```
 
 ### E8.1 Change to laborer
