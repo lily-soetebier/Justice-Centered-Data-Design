@@ -401,7 +401,13 @@ person1['profession'] = "laborer"
 ```
 
 ```js
-// Your code here
+let person1 = {
+  profession: "laborer"
+}
+
+if (person1.profession == "laborer") {
+  console.log('Person is a laborer.')
+}
 ```
 
 ### E8.2 Change to student
