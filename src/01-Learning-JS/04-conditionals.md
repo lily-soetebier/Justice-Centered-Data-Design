@@ -251,7 +251,7 @@ Ok, even more variables!
 
 ```javascript
 let person3Name = 'Margaret Farrell'
-let personAage = 30
+let person3Age = 30
 let person3Disease = 'recent emigrant'
 let person3Profession = 'widow'
 let person3Gender = 'w'
@@ -260,7 +260,7 @@ let person3ChildStatus = ''
 
 ```js
 let person3Name = 'Margaret Farrell'
-let personAage = 30
+let person3Age = 30
 let person3Disease = 'recent emigrant'
 let person3Profession = 'widow'
 let person3Gender = 'w'
