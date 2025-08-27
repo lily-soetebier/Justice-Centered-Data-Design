@@ -123,7 +123,7 @@ else {
   console.log("They messed up, Beyonce.")
 }
 ```
-
+<!-- 
 ```js
 let beyonceAwardCheck = "Grammy award-nominee"
 
@@ -136,7 +136,7 @@ else if (beyonceAwardCheck == "Grammy award-nominee") {
 else {
   console.log("They messed up, Beyonce.")
 }
-```
+``` -->
 
 ## 1.4 Exercises with Conditionals
 
@@ -190,7 +190,8 @@ Write an `if` statement that reports whether `person1Profession` is `"married"`.
 Use the following console log, when the condition is `true`: `console.log("Person is married.")`
 
 ```js
-// Your code here
+   if (person1Profession = "married") {
+     console.log("Person is married.)
 ```
 
 ## E3
