@@ -175,7 +175,12 @@ if () {
 ```
 
 ```js
-// Your code here
+if (person1Age < 30) {
+  console.log("Person is less than 30 years old.")
+}
+else {
+  console.log("Person is 30 years old or older.")
+}
 ```
 
 ## E2
