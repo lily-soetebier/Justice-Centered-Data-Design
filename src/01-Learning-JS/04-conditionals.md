@@ -190,8 +190,9 @@ Write an `if` statement that reports whether `person1Profession` is `"married"`.
 Use the following console log, when the condition is `true`: `console.log("Person is married.")`
 
 ```js
-   if (person1Profession = "married") {
-     console.log("Person is married.)
+   if (person1Profession == "married") {
+     console.log("Person is married")
+   }
 ```
 
 ## E3
