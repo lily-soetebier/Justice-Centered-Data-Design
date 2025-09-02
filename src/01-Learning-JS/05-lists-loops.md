@@ -432,8 +432,10 @@ professions
 
 **Goal**: Make a `for` loop that considers each item in the `professions` array and logs "Person's profession is ___", which "___" should be the profession from the array.
 
-```javascript
-// Convert and code here
+```js
+for (const job of professions) {
+  console.log("Person's profession is " + job)
+}
 ```
 
 ### E4. More conditional pushing with `for...of`
