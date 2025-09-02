@@ -140,7 +140,7 @@ If you review the String, you will notice how there are section breaks represent
 
 1. In the first codeblock, remove ***all*** of these section breaks in `vonnegut` and replace them with an empty string (`""`). Assign it to a new variable: `vonnegutNoSB`.
 2. In the second codeblock, output the new variable, `vonnegutNoSB`, to verify if it worked.
-3. If it worked, use a third codeblock to remove ***all*** major types of puncutation with a chained set of replaceAll() methods on the new `vonnegutNoSB` variable. Assign it to a new variable: `vonnegutClean`. Specifically, create a chain of `removeAll()` methods for each of the following characters: double-quotes (`"`), single-quotes (`'`), commas (`,`), periods (`.`), question marks (`?`), semi-colons (`;`), and the following pattern of two dashes (`--`). Replace the `--` with a single space (`" "`), but replace every other puncuation with an empty String (`""`).
+3. If it worked, use a third codeblock to remove ***all*** major types of puncutation with a chained set of replaceAll() methods on the new `vonnegutNoSB` variable. Assign it to a new variable: `vonnegutClean`. Specifically, create a chain of `replaceAll()` methods for each of the following characters: double-quotes (`"`), single-quotes (`'`), commas (`,`), periods (`.`), question marks (`?`), semi-colons (`;`), and the following pattern of two dashes (`--`). Replace the `--` with a single space (`" "`), but replace every other puncuation with an empty String (`""`).
     <div class="tip">
       <p>
         <strong>Escaping quotes</strong>: Strings are assigned with quotation marks. This means the single and double quotes are handled in special ways. For you to tell the <code>replaceAll()</code> method to match either type of quote characters, you need to escape them with a backslash (<code>\</code>). So, in your code, you will need to use an escaped character for double-quotes and single-quotes: <code>"\""</code> and <code>"\'"</code>.
@@ -156,13 +156,12 @@ let vonnegutNoSB = vonnegut.replaceAll("*","")
 vonnegutNoSB
 ```
 
-```javascript
-// Convert me to a js block and complete #3
+```js
+let vonnegutClean = vonnegutNoSB.replaceAll(`"`,"").replaceAll(`'`,"").replaceAll(",","").replaceAll(".","").replaceAll("?","").replaceAll(";","").replaceAll("--", " ")
 ```
 
-```javascript
-// Convert me to output the grand finale!
-vonnegutNoSBDQ
+```js
+vonnegutClean
 ```
 
 ### E3. Same thing, but better method with a for loop
