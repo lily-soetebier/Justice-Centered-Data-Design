@@ -129,7 +129,8 @@ vonnegut
 
 Let's start simple. Output the length of the String, `vonnegut`, in a `js` codeblock below.
 
-```javascript
+```js
+vonnegut.length
 // Convert me to a js block
 ```
 
