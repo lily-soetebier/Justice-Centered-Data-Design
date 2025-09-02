@@ -414,15 +414,16 @@ lessProfessions
 
 **Goal**: Add a new profession as a String, `"spinster"`, to your `professions` list, then log it to the web console.
 
-```javascript
-// Convert and code here
+```js
+professions.push("spinster")
+console.log(professions)
 ```
 
 <p class="codeblock-caption">
   Interactive output of the array of <code>lessProfessions</code>
 </p>
 
-```javascript
+```js
 // Convert me to output `professions`
 professions
 ```
