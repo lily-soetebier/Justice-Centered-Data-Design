@@ -442,9 +442,17 @@ for (const job of professions) {
 
 **Goal**: Create a new array and populate, i.e., push all items from the `childStatus` array, except for any empty Strings. Use a `for...of` loop to do so.
 
-```javascript
-// Your code here
+```js
+let newChildStatus = []
+for (const status of childStatus) {
+  if (status != ""){
+    newChildStatus.push(status)
+  }
+}
 ```
+<!-- ```js
+newChildStatus
+``` -->
 
 ### E5. Conditional logging
 
