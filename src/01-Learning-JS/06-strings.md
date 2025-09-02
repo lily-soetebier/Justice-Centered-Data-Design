@@ -148,8 +148,8 @@ If you review the String, you will notice how there are section breaks represent
     </div>
 4. In the fourth codeblock, output the new variable, `vonnegutNoSBDQ`, to verify if it worked.
 
-```javascript
-// Convert me to a js block and complete #1
+```js
+let vonnegutNoSB = vonnegut.replaceAll("*","")
 ```
 
 ```javascript
