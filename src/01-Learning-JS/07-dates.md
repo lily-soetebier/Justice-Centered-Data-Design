@@ -373,7 +373,10 @@ Here are some tips to consider as you complete this exercise.
 <!-- E1 -->
 ```js
 let ballotsWithDateObjs = nc2024SampleVoters.map(
-(ballot) => ballot.ballot_req_dt_obj = utcParse(ballot.ballot_req_dt)
+(ballot) => 
+{ballot.ballot_req_dt_obj = utcParse(ballot.ballot_req_dt)
+return ballot
+}
 )
 ```
 
@@ -387,9 +390,15 @@ ballotsWithDateObjs
 
 <!-- E2 -->
 ```js
+let updatedBallots = ballotsWithDateObjs.map(
+  (ballots) => {
+    ballots.ballot_req_dt_obj = formatPrettyDate(ballots.ballot_req_dt_obj)
+    return ballots
+  }
+)
 ```
 
-```javascript
+```js
 // Convert and output updatedBallots here
 updatedBallots
 ```
