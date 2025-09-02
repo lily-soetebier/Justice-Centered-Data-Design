@@ -231,9 +231,25 @@ Ok, last exercise! Complete the following steps to create a new array that only 
 1. In a first codeblock, declare a new array called `hyphenatedWords`. Then, push only hyphenated words into it.
 2. In a second codeblock, output the new array to verify your work.
 
+```js
+let hyphenatedWords = []
+  
+  hyphenatedWords.push("clean-cut")
+  hyphenatedWords.push("far-fetched")
+  hyphenatedWords.push("free-for-all")
+  hyphenatedWords.push("sister-in-law")
+```
+```js
+hyphenatedWords
+```
+
+
+
 **Question**: What oddities do you notice about the outcome? Below, explain what you suggest is happenning, and what you would do to resolve the issue with isolating a better list of hyphenated words.
 
-ENTER_YOUR_RESPONSE_HERE
+I was unable to chain the .push() method. To fix this I simply added a new line and repeated the hyphantedWords.push() function again. 
+
+I feel like I completed this exercise wrong though. I am quite confused.
 
 ## Submission
 
