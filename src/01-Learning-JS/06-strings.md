@@ -152,8 +152,8 @@ If you review the String, you will notice how there are section breaks represent
 let vonnegutNoSB = vonnegut.replaceAll("*","")
 ```
 
-```javascript
-// Convert me to a js block and complete #2
+```js
+vonnegutNoSB
 ```
 
 ```javascript
