@@ -477,11 +477,11 @@ Make sure you check to see if the correct language has been logged to the web co
 
 For your reference, here's the original declaration and instantiation of `sex`: `let sex = ["f", "m", "f", "m", "i"]`.
 
-```javascript
-// Convert and code here
+```js
+sex.push("unknown")
 ```
 
-```javascript
+```js
 // Convert and output here
 sex
 ```
@@ -490,8 +490,22 @@ sex
 
 **Goal**: Make a `for` loop that considers each item in the `sex` list. Log "Person is male" ***if*** the person is `"m"`, "Person is female" ***if*** the person is `"f"`, "Person is intersex" ***if*** the person is `"i"`, and "Person's sex is not known" ***if*** `"unknown"`.
 
-```javascript
-// Your code here
+```js
+for (const sexAssigned of sex) {
+  if (sexAssigned == "m") {
+    console.log("Person is male.")
+  }
+  else if (sexAssigned == "f"){
+    console.log("Person is female.")
+  }
+  else if (sexAssigned == "i") {
+    console.log("Person is intersex.")
+  }
+  else {
+    console.log("Person's sex is not known")
+  }
+}
+
 ```
 
 Make sure to check if the items are logged correctly.
