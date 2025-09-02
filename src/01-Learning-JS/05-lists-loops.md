@@ -516,16 +516,32 @@ Make sure to check if the items are logged correctly.
 
 Since this is your first big use of `.map()`, I'll give you the skeleton of the expression:
 
-```javascript
+```js
 // Skeleton of .map()
 let sexFullTerm = sex.map(
   (sexItem) => {
-    // Enter your code in here,
-    // which will include conditional statements.
-    // Also, be sure to use `return` statements
-    // where appropriate!
+    if (sexItem == "m") {
+      sexItem = "male"
+      return sexItem
+    }
+    else if (sexItem == "f") {
+      sexItem = "female"
+       return sexItem
+    }
+    else if (sexItem == "i") {
+      sexItem = "intersex"
+       return sexItem
+    }
+    else {
+      sexItem = "unknown"
+      return sexItem
+    }
   }
+  
 )
+```
+```js
+sexFullTerm
 ```
 
 ## Submission
