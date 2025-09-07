@@ -64,7 +64,7 @@ In this project, check out the `/src/data/events.json` file, which is a small ex
   What other properties of JSON do you notice?
 </p>
 
-**RESPONSE**: Write your response here.
+**RESPONSE**: it looks like a collection of objects.
 
 ## 1.8.2 Framework's FileAttachment()
 
