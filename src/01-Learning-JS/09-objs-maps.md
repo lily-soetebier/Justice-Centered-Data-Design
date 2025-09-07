@@ -992,11 +992,15 @@ const dateParse = d3.utcParse("%d/%m/%Y");
 for (let voter of nc2024SampleVoters) {
   voter.ballot_send_dt_obj = dateParse(voter.ballot_send_dt);
 }
+let dateMap = d3.group(
+nc2024SampleVoters,
+(d) => d.ballot_send_dt_obj
+)
 ```
 
 ```js
 // Your grouped variable here
-nc2024SampleVoters
+dateMap
 ```
 
 ### E3. Group NC Voters By Age Range as an InternMap()
@@ -1015,12 +1019,44 @@ nc2024SampleVoters
   </ol>
 </div>
 
-```javascript
+```js
+const ages = [20, 30, 40, 50, 60, 70, 80]
+for (let voter of nc2024SampleVoters) {
+  if (voter.age < ages[0]){
+    voter.ageRange = "Under 20"
+  }
+  else if (voter.age < ages[1]){
+    voter.ageRange = "20-29"
+  }
+  else if (voter.age < ages[2]){
+    voter.ageRange = "30-39"
+  }
+  else if (voter.age < ages[3]){
+    voter.ageRange = "40-49"
+  }
+  else if (voter.age <= ages[4]){
+    voter.ageRange = "50-59"
+  }
+   else if (voter.age <= ages[5]){
+    voter.ageRange = "60-69"
+  }
+   else if (voter.age <= ages[6]){
+    voter.ageRange = "70-79"
+  }
+  else {
+    voter.ageRange = "80+"
+  }
+}
+let voterAgesMap = d3.group(
+  nc2024SampleVoters,
+  (a) => a.ageRange
+)
 // Your code goes here
 ```
 
-```javascript
+```js
 // Your grouped variable here
+voterAgesMap
 ```
 
 ### E4. Group NC Voters by Your Desired set of 2-3 Fields as an InternMap()
