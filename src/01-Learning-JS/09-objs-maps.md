@@ -955,12 +955,22 @@ nc24VotersRollUpPartyAndRace.get("DEM").get("F") // Yields 4149
   Be sure to write your code in a manner aligned with how I break down the process above.
 </p>
 
-```javascript
+```js
 // Your code goes here
+let statusAndRace = nc2024SampleVoters.map(
+  (ballot) => {
+     let returnStatus = ballot.ballot_rtn_status
+     let voterRace = ballot.race
+     if (returnStatus != null) {
+       return {status: returnStatus, race: voterRace}
+     }
+  }
+)
 ```
 
-```javascript
+```js
 // Your new variable here
+statusAndRace
 ```
 
 ### E2. Group NC Voters By the Ballot Sent Date as an InternMap()
@@ -976,12 +986,17 @@ nc24VotersRollUpPartyAndRace.get("DEM").get("F") // Yields 4149
   Be sure to write your code in a manner aligned with how I break down the process above.
 </p>
 
-```javascript
+```js
 // Your code goes here
+const dateParse = d3.utcParse("%d/%m/%Y");
+for (let voter of nc2024SampleVoters) {
+  voter.ballot_send_dt_obj = dateParse(voter.ballot_send_dt);
+}
 ```
 
-```javascript
+```js
 // Your grouped variable here
+nc2024SampleVoters
 ```
 
 ### E3. Group NC Voters By Age Range as an InternMap()
