@@ -248,7 +248,7 @@ const data = FileAttachment("./../data/nc-voters/nc_absentee_mail_2024.csv").csv
 console.log(
    data.name,
    data.size,
-   data[1]
+   data[0]
 )
 // data.csv({typed: true})
 ```
