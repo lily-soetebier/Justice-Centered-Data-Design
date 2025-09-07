@@ -241,14 +241,16 @@ In this case, load the following CSV file: `nc_absentee_mail_2024.csv`.
 3. Still in the second codeblock, add a second `console.log()` and log the first object in the Array to the console.
 
 ```js
-const data = FileAttachment("./../data/nc-voters/nc_absentee_mail_2024.csv")
+const data = FileAttachment("./../data/nc-voters/nc_absentee_mail_2024.csv").csv({typed:true});
 ```
 
 ```js
 console.log(
    data.name,
-   data.size
+   data.size,
+   data[1]
 )
+// data.csv({typed: true})
 ```
 
 Make sure that you verify the logs are there!
