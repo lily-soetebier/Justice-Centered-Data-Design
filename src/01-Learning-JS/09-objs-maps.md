@@ -1065,16 +1065,59 @@ voterAgesMap
 
 First outline your procedure with steps below. Then, use the JS codeblock to perform your grouping as a D3.js `InternMap()`.
 
-1. Enter step 1
-2. Enter step 2
-3. ...
+1. Create gender&party affiliation values for each entry using nested for of loops
+2. Create and InternMap() using .group() to group based on the new affiliations
 
-```javascript
-// Your code goes here
+
+```js
+for (let voter of nc2024SampleVoters) {
+  // female
+  if (voter.gender == "F") {
+    if (voter.voter_party_code == "DEM") {
+      voter.genderPartyCombo = "F_DEM"
+    }
+    else if (voter.voter_party_code == "REP") {
+      voter.genderPartyCombo = "F_REP"
+    }
+    else {
+      voter.genderPartyCombo = "F_UNA"
+    }
+  }
+  // male
+  else if (voter.gender == "M") {
+    if (voter.voter_party_code == "DEM") {
+      voter.genderPartyCombo = "M_DEM"
+    }
+    else if (voter.voter_party_code == "REP") {
+      voter.genderPartyCombo = "M_REP"
+    }
+    else {
+      voter.genderPartyCombo = "M_UNA"
+    }
+  }
+  // all others
+  else {
+    if (voter.voter_party_code == "DEM") {
+      voter.genderPartyCombo = "UNA_DEM"
+    }
+    else if (voter.voter_party_code == "REP") {
+      voter.genderPartyCombo = "UNA _REP"
+    }
+    else {
+      voter.genderPartyCombo = "UNA_UNA"
+    }
+  }
+}
+
+let genderPartyGroup = d3.group(
+  nc2024SampleVoters,
+  (d) =>
+  d.genderPartyCombo
+)
 ```
 
-```javascript
-// Your grouped variable here
+```js
+genderPartyGroup
 ```
 
 ### E5. Rollup NC Voters by Total Ballot Sent Date as an InternMap()
@@ -1083,16 +1126,25 @@ First outline your procedure with steps below. Then, use the JS codeblock to per
 
 First outline your procedure with steps below. Then, use the JS codeblock to perform your rollup as a D3.js `InternMap()`.
 
-1. Enter step 1
-2. Enter step 2
-3. ...
+1. Create date parse variable
+2. Use for of loop to add a date object for each request date to each ballot
+3. use .rollup() to rollup based on the new property
 
-```javascript
+```js
+const dateParse = d3.utcParse("%d/%m/%Y");
+for (let voter of nc2024SampleVoters) {
+  voter.ballot_req_dt_obj = dateParse(voter.ballot_req_dt);
+}
+let dateReqMap = d3.rollup (
+nc2024SampleVoters,
+(D) => D.length,
+(d) => d.ballot_req_dt_obj,
+)
 // Your code goes here
 ```
 
-```javascript
-// Your grouped variable here
+```js
+dateReqMap
 ```
 
 ## Submission
