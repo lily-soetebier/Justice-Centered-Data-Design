@@ -955,12 +955,22 @@ nc24VotersRollUpPartyAndRace.get("DEM").get("F") // Yields 4149
   Be sure to write your code in a manner aligned with how I break down the process above.
 </p>
 
-```javascript
+```js
 // Your code goes here
+let statusAndRace = nc2024SampleVoters.map(
+  (ballot) => {
+     let returnStatus = ballot.ballot_rtn_status
+     let voterRace = ballot.race
+     if (returnStatus != null) {
+       return {status: returnStatus, race: voterRace}
+     }
+  }
+)
 ```
 
-```javascript
+```js
 // Your new variable here
+statusAndRace
 ```
 
 ### E2. Group NC Voters By the Ballot Sent Date as an InternMap()
@@ -976,12 +986,21 @@ nc24VotersRollUpPartyAndRace.get("DEM").get("F") // Yields 4149
   Be sure to write your code in a manner aligned with how I break down the process above.
 </p>
 
-```javascript
+```js
 // Your code goes here
+const dateParse = d3.utcParse("%d/%m/%Y");
+for (let voter of nc2024SampleVoters) {
+  voter.ballot_send_dt_obj = dateParse(voter.ballot_send_dt);
+}
+let dateMap = d3.group(
+nc2024SampleVoters,
+(d) => d.ballot_send_dt_obj
+)
 ```
 
-```javascript
+```js
 // Your grouped variable here
+dateMap
 ```
 
 ### E3. Group NC Voters By Age Range as an InternMap()
@@ -1000,12 +1019,44 @@ nc24VotersRollUpPartyAndRace.get("DEM").get("F") // Yields 4149
   </ol>
 </div>
 
-```javascript
+```js
+const ages = [20, 30, 40, 50, 60, 70, 80]
+for (let voter of nc2024SampleVoters) {
+  if (voter.age < ages[0]){
+    voter.ageRange = "Under 20"
+  }
+  else if (voter.age < ages[1]){
+    voter.ageRange = "20-29"
+  }
+  else if (voter.age < ages[2]){
+    voter.ageRange = "30-39"
+  }
+  else if (voter.age < ages[3]){
+    voter.ageRange = "40-49"
+  }
+  else if (voter.age <= ages[4]){
+    voter.ageRange = "50-59"
+  }
+   else if (voter.age <= ages[5]){
+    voter.ageRange = "60-69"
+  }
+   else if (voter.age <= ages[6]){
+    voter.ageRange = "70-79"
+  }
+  else {
+    voter.ageRange = "80+"
+  }
+}
+let voterAgesMap = d3.group(
+  nc2024SampleVoters,
+  (a) => a.ageRange
+)
 // Your code goes here
 ```
 
-```javascript
+```js
 // Your grouped variable here
+voterAgesMap
 ```
 
 ### E4. Group NC Voters by Your Desired set of 2-3 Fields as an InternMap()
@@ -1014,16 +1065,59 @@ nc24VotersRollUpPartyAndRace.get("DEM").get("F") // Yields 4149
 
 First outline your procedure with steps below. Then, use the JS codeblock to perform your grouping as a D3.js `InternMap()`.
 
-1. Enter step 1
-2. Enter step 2
-3. ...
+1. Create gender&party affiliation values for each entry using nested for of loops
+2. Create and InternMap() using .group() to group based on the new affiliations
 
-```javascript
-// Your code goes here
+
+```js
+for (let voter of nc2024SampleVoters) {
+  // female
+  if (voter.gender == "F") {
+    if (voter.voter_party_code == "DEM") {
+      voter.genderPartyCombo = "F_DEM"
+    }
+    else if (voter.voter_party_code == "REP") {
+      voter.genderPartyCombo = "F_REP"
+    }
+    else {
+      voter.genderPartyCombo = "F_UNA"
+    }
+  }
+  // male
+  else if (voter.gender == "M") {
+    if (voter.voter_party_code == "DEM") {
+      voter.genderPartyCombo = "M_DEM"
+    }
+    else if (voter.voter_party_code == "REP") {
+      voter.genderPartyCombo = "M_REP"
+    }
+    else {
+      voter.genderPartyCombo = "M_UNA"
+    }
+  }
+  // all others
+  else {
+    if (voter.voter_party_code == "DEM") {
+      voter.genderPartyCombo = "UNA_DEM"
+    }
+    else if (voter.voter_party_code == "REP") {
+      voter.genderPartyCombo = "UNA _REP"
+    }
+    else {
+      voter.genderPartyCombo = "UNA_UNA"
+    }
+  }
+}
+
+let genderPartyGroup = d3.group(
+  nc2024SampleVoters,
+  (d) =>
+  d.genderPartyCombo
+)
 ```
 
-```javascript
-// Your grouped variable here
+```js
+genderPartyGroup
 ```
 
 ### E5. Rollup NC Voters by Total Ballot Sent Date as an InternMap()
@@ -1032,16 +1126,25 @@ First outline your procedure with steps below. Then, use the JS codeblock to per
 
 First outline your procedure with steps below. Then, use the JS codeblock to perform your rollup as a D3.js `InternMap()`.
 
-1. Enter step 1
-2. Enter step 2
-3. ...
+1. Create date parse variable
+2. Use for of loop to add a date object for each request date to each ballot
+3. use .rollup() to rollup based on the new property
 
-```javascript
+```js
+const dateParse = d3.utcParse("%d/%m/%Y");
+for (let voter of nc2024SampleVoters) {
+  voter.ballot_req_dt_obj = dateParse(voter.ballot_req_dt);
+}
+let dateReqMap = d3.rollup (
+nc2024SampleVoters,
+(D) => D.length,
+(d) => d.ballot_req_dt_obj,
+)
 // Your code goes here
 ```
 
-```javascript
-// Your grouped variable here
+```js
+dateReqMap
 ```
 
 ## Submission
