@@ -215,8 +215,43 @@ First, go back to the last chapter and grab the suite of primitives that you cre
 4. Print them all to the console with `console.log()`.
 5. Check your work, as you go, by opening the browser console with the **Inspect Element** tool.
 
-```javascript
-// Write your code in here
+```js
+// variables from the last exercise
+ var orderName = "Lily"
+var cashierName  = "Hannah"
+var orderDrink = {
+   hotWeather: "Citrus Espresso Tonic",
+   coolWeather: "Hot Oat Milk Latte with Cinnamon",
+}
+
+var numOfDrink = 1
+
+var affordableCoffee = {
+   lessThan5: true,
+   moreThan5: false,
+}
+var priceTonic = 7
+var priceLatte = 4.5
+var weatherTemp = 78
+
+// suite of operations
+console.log(
+  "The weather is greater than 68: ",
+  weatherTemp > 68,
+  "The weather is less than 68: ",
+  weatherTemp < 68,
+  "The temperature is: " + weatherTemp,
+)
+
+let totalPrice = priceTonic + priceLatte
+
+console.log (
+  orderDrink.hotWeather + ": $" + priceTonic,
+  orderDrink.coolWeather + ": $" + priceLatte,
+  "Your total is: $" + totalPrice,
+)
+
+
 ```
 
 ## Submission
