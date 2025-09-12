@@ -100,6 +100,21 @@ Here's that process again for you:
 4. Inside the "js" codeblock, add the following text `console.log("I do NOT show up on the page")`.
     - **NOTE**: This codeblock should NOT render on the locally hosted page. I'll show where to find it in class. `:-)`
 
+```javascript 
+I will show up on the page.
+```
+
+```js
+console.log(
+ "I do NOT show up on the page"
+  )
+```
+
+
+
+
+
+
 ## Conclusion
 
 Techniques learned and practiced include:
@@ -122,6 +137,9 @@ Techniques learned and practiced include:
     3. Creating a **PR** (**pull request**) and use the provided content in the template to start it.
     4. No peer responses required for this chapter.
     5. Submit the PR link in Moodle, when you're ready.
+
+
+
 
 ## Submission
 
