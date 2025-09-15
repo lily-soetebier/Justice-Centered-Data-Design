@@ -93,7 +93,8 @@ Overall keep that rule-of-thumb in mind as you practice writing functions.
 Use D3.js `FileAttachment()` method below in VS Code. Remember that you'll need to write a relative path as a String parameter that helps the computer find where the CSV file is in relation to this particular page's file in the project tree.
 
 <!-- Attach sampled NC voter data -->
-```javascript
+```js
+let data = FileAttachment("./../data/nc-voters/nc_absentee_mail_2024_n20000.csv").csv({typed: true})
 // Convert to `js` codeblock and attach sampled NC voter data file: nc_absentee_mail_2024_n20000.csv
 ```
 
@@ -103,18 +104,35 @@ Use D3.js `FileAttachment()` method below in VS Code. Remember that you'll need 
 
 First outline your procedure with steps below.
 
-1. Enter step 1
-2. Enter step 2
-3. ...
+1. Instantiate a dateParse variable using d3 dateParse()
+2. Instantiate the function with name dateConversion
+3. add parameters for the array, the date you want to convert, and the name of the new objects
+4. instatiate a new dataset variable that is equal to dataset.map()
+5. access the date for each entry and convert to date object and assign this value to the new variable
+6. Return the voter in the .map()
+7. return the newDataSet in the function
 
 Now, code!
-
-```javascript
-// Your function code goes here
+```js
+data
 ```
 
-```javascript
+```js
+const dateParse = d3.utcParse("%d/%m/%Y")
+const dateConversion = (dataset, dateString, newObjectName) => { 
+  let newDataSet = dataset.map(
+  (voter) => {
+    voter.newObjectName = dateParse(voter.dateString)
+    return voter
+  }
+  )
+  return newDataSet
+}
+```
+
+```js
 // Your use of the function code goes here
+dateConversion(data, "ballot_req_dt", "ballot_req_dt_obj")
 ```
 
 <p class="codeblock-caption">
@@ -131,17 +149,30 @@ Now, code!
 
 First outline your procedure with steps below.
 
-1. Enter step 1
-2. Enter step 2
-3. ...
+1. Instantiate the countyIdentifier function
+2. set the parameters to the function to the dataset, and the name of the county key
+3. use a .map() to access each value
+4. return the sentence "Voter lives in" " County"
 
 Now, code!
 
-```javascript
+```js
 // Your function code goes here
+const countyIdentifier = (dataset, countyKey) => {
+  let dataMap = dataset.map(
+    (voter) => {
+      voter.countyFormatted = voter.countyKey
+      return "Voter is from " + voter.countyFormatted + " county."
+      // return "Voter is from " + countyFormatted + " county."
+    }
+  )
+  return dataMap
+}
 ```
-
-```javascript
+  
+```js
+countyIdentifier (data, "county_desc")
+// data
 // Your use of the function code goes here
 ```
 
