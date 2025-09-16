@@ -20,13 +20,21 @@ Use the following general scheme to revise as needed.
 
 ## Attach the data
 
-In this section, be sure to make some small notes about the data and output it
+*In this section, be sure to make some small notes about the data and output it
 in an executable js codeblock, so you can review it on the page interactively.
 You can note its size, for instance, as well as any other notable insights
-gleaned during your first glance.
+gleaned during your first glance.*
 
-Remember that this is a notebook, so you can treat it like one. `:-)`
+*Remember that this is a notebook, so you can treat it like one. `:-)`*
 
+```js
+let pollutionDataset = FileAttachment("./../data/midterm-options/pollution/pollution_data.csv").csv({typed: true})
+```
+### Dataset Printout
+```js
+// printing the data so that I can see it and reference backl
+pollutionDataset
+```
 ## Convert Dates
 
 Convert the dates, which are strings, into Date() objects with your own custom
