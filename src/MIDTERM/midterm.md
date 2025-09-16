@@ -1,22 +1,19 @@
-# Title for the page
+# Understanding Pollution in Major US Cities
 
-- Unordered list of the following information:
-- **Name**: Your first and last name
-- **Dataset**: Filename of the chosen dataset
+- **Name**: Lily Soetebier
+- **Dataset**: pollution_data.csv
 
 ## Overview
 
-Paragraph 1: Briefly explain your reasons for choosing the specific dataset,
-which can include any discussion about the topic and particular variables.
+*Paragraph 1: Briefly explain your reasons for choosing the specific dataset,
+which can include any discussion about the topic and particular variables.*
 
-The following given executable js codeblock that imports the one set of D3.js
-modules that you will need to use for Date() object work. You will need to
-remove the forward-slashes preceeding the backticks, since I needed to
-eascape these characters within this block.
+I chose the pollution data set as I felt it best aligned with my interests in science communication. While I don't always work with data on this large of a scale, nor do I often work with data that has not been processed, I do work with environmental data on a daily basis as a science communication intern at North Carolina Sea Grant. As such, I feel that being able to work with environmental data, and have the familiarity with the kinds of measurements that I could be looking for is something that will strengthen my skills as an intern. 
 
-\`\`\`js
+<!--importing time from d3 -->
+```js
 import {utcParse,utcFormat} from "d3-time-format";
-\`\`\`
+```
 
 Then, divide the notebook into meaningfully sections and subsections.
 Use the following general scheme to revise as needed.
