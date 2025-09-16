@@ -193,7 +193,7 @@ yarn remove enterPackageName
 
 To use the dependencies, i.e., other peoples' code in our project, we need to import them. Depending upon what programming language environment and technology stack you are using, there are different ways to do so. In our case, we will use the following approach with an `import` `from` expression.
 
-```javascript
+```js
 /**
   * Tells Observable Framework and Node.js
   * to import two methods from D3.js'
