@@ -28,21 +28,36 @@ gleaned during your first glance.*
 *Remember that this is a notebook, so you can treat it like one. `:-)`*
 
 ```js
-let pollutionDataset = FileAttachment("./../data/midterm-options/pollution/pollution_data.csv").csv({typed: true})
+let pollutionData = FileAttachment("./../data/midterm-options/pollution/pollution_data.csv").csv({typed: true})
 ```
 ### Dataset Printout
 ```js
 // printing the data so that I can see it and reference backl
-pollutionDataset
+pollutionData
 ```
 ## Convert Dates
 
-Convert the dates, which are strings, into Date() objects with your own custom
+*Convert the dates, which are strings, into Date() objects with your own custom
 D3.js parser and any formatters. Discuss any particular choices to format the
-date data in any new ways.
+date data in any new ways.*
 
-Again, be sure to output your newly transformed data in executable codeblocks
-for easier verification and reviewing.
+*Again, be sure to output your newly transformed data in executable codeblocks
+for easier verification and reviewing.*
+### Creating and Testing Date Parser
+```js
+let dateParser = utcParse("%Y-%m-%d")
+let testDate = dateParser("2019-01-01")
+```
+```js
+testDate
+```
+### Converting Dates
+```js
+for (let city of pollutionData) {
+  console.log(city.Date)
+}
+```
+
 
 ## Grouping #1 - Name of grouping here
 
