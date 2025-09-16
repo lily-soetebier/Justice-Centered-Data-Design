@@ -54,22 +54,37 @@ testDate
 ### Converting Dates
 ```js
 for (let city of pollutionData) {
-  console.log(city.Date)
+
 }
 ```
 
+## Looking Through the Data
+To familiarize myself with the data, I am performing a few actions here to make decision making about the next parts a bit easier.
 
-## Grouping #1 - Name of grouping here
+```js
+let no2Medians =[]
+for (let city of pollutionData) {
+  no2Medians.push(city.no2_median)
+}
+```
 
-Explain your plan to group the data in a particular way here, before you do so.
+```js
+no2Medians
+```
+## Grouping #1 - Median Measurement of NO2
+
+*Explain your plan to group the data in a particular way here, before you do so.
 At least one of the groupings should use some variation of D3's `.rollup()`, so
 you can count particular grouped properties.
+*
 
-Provide a procedure of your grouping plan in an ordered list before the codeblock:
+### Explanation and Procedure
+This grouping categorizes cities by their median amount of NO2 that was present in the atmosphere. The groupings are done in ranges of 10.
 
-1. Coding_Action_1
-2. Coding_Action_2
-3. ...
+
+1. Create a for of loop to loop through the data
+2. Create a set of condtionals that evaluates the no3_median property of each city object and assigns a new property called date range to the city
+3. 
 
 Again, be sure to output your newly transformed data in executable codeblocks
 for easier verification and reviewing.
