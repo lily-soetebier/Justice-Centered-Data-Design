@@ -28,7 +28,7 @@ gleaned during your first glance.*
 *Remember that this is a notebook, so you can treat it like one. `:-)`*
 
 ```js
-let pollutionData = FileAttachment("./../data/midterm-options/pollution/pollution_data.csv").csv({typed: true})
+const pollutionData = FileAttachment("./../data/midterm-options/pollution/pollution_data.csv").csv({typed: true})
 ```
 ### Dataset Printout
 ```js
@@ -57,16 +57,24 @@ testObject
 ```js
 dateFormatter(testObject.Date)
 ```
+
 ### Converting Dates
 ```js
-
+let dataWithDates = pollutionData.map(
+  (city) => {
+    city.prettyDate = dateFormatter(city.Date)
+    return city
+  }
+)
 ```
 ```js
+dataWithDates
 ```
 
-```js
+### Reasoning
+Since the data present in the set was already set as date objects, I chose to reformat into a string with the full weekday and month name written out. My purpose for this is that the day of the week that pollution data may have been collected could impact the results. For example, it is possible that pollutants caused by exhaust will be higher on workdays when there are more commuters present. 
 
-```
+
 ## Looking Through the Data
 To familiarize myself with the data, I am performing a few actions here to make decision making about the next parts a bit easier.
 
@@ -75,11 +83,14 @@ let no2Medians =[]
 for (let city of pollutionData) {
   no2Medians.push(city.no2_median)
 }
+
 ```
 
 ```js
 no2Medians
 ```
+
+
 ## Grouping #1 - Median Measurement of NO2
 
 *Explain your plan to group the data in a particular way here, before you do so.
@@ -98,7 +109,7 @@ This grouping categorizes cities by their median amount of NO2 that was present 
 Again, be sure to output your newly transformed data in executable codeblocks
 for easier verification and reviewing.
 
-## Grouping #2 - Name of grouping here
+## Grouping #2 - Rollup of Cities and States
 
 Explain your plan to group the data in a particular way here, before you do so.
 At least one of the groupings should use some variation of D3's `.rollup()`, so
@@ -106,9 +117,31 @@ you can count particular grouped properties.
 
 Provide a procedure of your grouping plan in an ordered list before the codeblock:
 
-1. Coding_Action_1
-2. Coding_Action_2
-3. ...
+### Explanation and Procedure
+This rollup tallies the number of entries from each city, and groups these cities by their state.
+
+1. Initialize a constant to hold the new D3 map.
+2. Set the const equal to d3.rollup()
+3. add a line naming the data set separated by a comma
+4. add in the .length method to ensure that we are getting counts of each instance
+5. create the outer most grouping of state by using an arrow function and dot notation
+6. create the inner grouping of city by using an arrow function and dot notation
+7. in a separate JS block, print the new map to verify
+
+### Completing the RollUp
+```js
+const stateRollup = d3.rollup(
+  pollutionData,
+  (D) => D.length,
+  (d) => d.State,
+    (d) => d.City,
+)
+```
+
+```js
+stateRollup
+```
+### 
 
 Again, be sure to output your newly transformed data in executable codeblocks
 for easier verification and reviewing.
