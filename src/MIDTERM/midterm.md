@@ -12,7 +12,7 @@ I chose the pollution data set as I felt it best aligned with my interests in sc
 
 <!--importing time from d3 -->
 ```js
-import {utcParse,utcFormat} from "d3-time-format";
+import {utcParse, utcFormat} from "d3-time-format";
 ```
 
 Then, divide the notebook into meaningfully sections and subsections.
@@ -20,7 +20,7 @@ Use the following general scheme to revise as needed.
 
 ## Attach the data
 
-*In this section, be sure to make some small notes about the data and output it
+*In this section, be sure to make some small notes about the*data and output it
 in an executable js codeblock, so you can review it on the page interactively.
 You can note its size, for instance, as well as any other notable insights
 gleaned during your first glance.*
@@ -43,21 +43,30 @@ date data in any new ways.*
 
 *Again, be sure to output your newly transformed data in executable codeblocks
 for easier verification and reviewing.*
-### Creating and Testing Date Parser
+### Creating and Testing Date Formatter
 ```js
-let dateParser = utcParse("%Y-%m-%d")
-let testDate = dateParser("2019-01-01")
+const dateFormatter = utcFormat("%A, %B %d, %Y")
 ```
 ```js
-testDate
+let testObject = pollutionData[0]
+```
+```js
+testObject
+```
+
+```js
+dateFormatter(testObject.Date)
 ```
 ### Converting Dates
 ```js
-for (let city of pollutionData) {
 
-}
+```
+```js
 ```
 
+```js
+
+```
 ## Looking Through the Data
 To familiarize myself with the data, I am performing a few actions here to make decision making about the next parts a bit easier.
 
@@ -83,7 +92,7 @@ This grouping categorizes cities by their median amount of NO2 that was present 
 
 
 1. Create a for of loop to loop through the data
-2. Create a set of condtionals that evaluates the no3_median property of each city object and assigns a new property called date range to the city
+2. Create a set of conditionals that evaluates the no3_median property of each city object and assigns a new property called date range to the city
 3. 
 
 Again, be sure to output your newly transformed data in executable codeblocks
