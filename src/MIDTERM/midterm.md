@@ -102,9 +102,51 @@ you can count particular grouped properties.
 This grouping categorizes cities by their median amount of NO2 that was present in the atmosphere. The groupings are done in ranges of 10.
 
 
-1. Create a for of loop to loop through the data
-2. Create a set of conditionals that evaluates the no3_median property of each city object and assigns a new property called date range to the city
-3. 
+1. Instantiate a variable called medianRangeData and use .map() to duplicate the data 
+2. Create a set of conditionals that evaluates the no3_median property of each city object and assigns a new property called no2_median_range to the city
+3. instantiate a new variable called no2MedianGroup to assign the grouped map to
+4. use d3.group to group the entries in the new dataset by their median ranges
+5. print the grouped ranges in a new js block
+
+### Completing the Groupings
+```js
+let no2MedianRangeData = pollutionData.map(
+  (city) => {
+   if (city.no2_median == null ) {
+    city.no2_median_range = "No measurement taken"
+   }
+   else if (city.no2_median < 10 ) {
+    city.no2_median_range = "less than 10"
+   }
+   else if (city.no2_median <20 ) {
+    city.no2_median_range = "10-19"
+   }
+   else if (city.no2_median <30 ) {
+    city.no2_median_range = "20-29"
+   }
+   else if (city.no2_median <40 ) {
+    city.no2_median_range = "30-49"
+   }
+   else {
+    city.no2_median_range = "greater than 40"
+   }
+   return city
+  }
+)
+```
+```js
+no2MedianRangeData
+```
+
+```js
+const no2MedianGroup = d3.group(
+  no2MedianRangeData,
+  (entry) => entry.no2_median_range
+)
+```
+```js
+no2MedianGroup
+```
 
 Again, be sure to output your newly transformed data in executable codeblocks
 for easier verification and reviewing.
