@@ -118,14 +118,14 @@ let no2MedianRangeData = pollutionData.map(
    else if (city.no2_median < 10 ) {
     city.no2_median_range = "less than 10"
    }
-   else if (city.no2_median <20 ) {
+   else if (city.no2_median < 20 ) {
     city.no2_median_range = "10-19"
    }
-   else if (city.no2_median <30 ) {
+   else if (city.no2_median < 30 ) {
     city.no2_median_range = "20-29"
    }
-   else if (city.no2_median <40 ) {
-    city.no2_median_range = "30-49"
+   else if (city.no2_median < 40 ) {
+    city.no2_median_range = "30-39"
    }
    else {
     city.no2_median_range = "greater than 40"
