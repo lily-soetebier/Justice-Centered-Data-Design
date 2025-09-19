@@ -141,7 +141,7 @@ no2MedianRangeData
 ```js
 const no2MedianGroup = d3.group(
   no2MedianRangeData,
-  (entry) => entry.no2_median_range
+  (entry) => entry.no2_median_range,
 )
 ```
 ```js
@@ -193,5 +193,5 @@ for easier verification and reviewing.
 Use the following prompt to guide your reflection about your data work:
 "What 2-3 insights and 2-3 questions did you glean from your initial work
 with the dataset?"
-
+<!-- write in the pull request -->
 Use the PR-TEMPLATE prompts to reflect on the midterm experience.
