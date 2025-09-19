@@ -90,7 +90,6 @@ for (let city of pollutionData) {
 no2Medians
 ```
 
-
 ## Grouping #1 - Median Measurement of NO2
 
 *Explain your plan to group the data in a particular way here, before you do so.
@@ -172,7 +171,7 @@ This rollup tallies the number of entries from each city, and groups these citie
 
 ### Completing the RollUp
 ```js
-const stateRollup = d3.rollup(
+const cityStateRollup = d3.rollup(
   pollutionData,
   (D) => D.length,
   (d) => d.State,
@@ -181,7 +180,7 @@ const stateRollup = d3.rollup(
 ```
 
 ```js
-stateRollup
+cityStateRollup
 ```
 ### 
 
