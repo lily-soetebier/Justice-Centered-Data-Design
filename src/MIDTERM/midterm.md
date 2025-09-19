@@ -141,6 +141,8 @@ no2MedianRangeData
 const no2MedianGroup = d3.group(
   no2MedianRangeData,
   (entry) => entry.no2_median_range,
+    // (e) => e.City, 
+    // ^^ I used the extra "city" grouping to review the frequency and would essentially turn it on and off depending on the number that I wanted to look at
 )
 ```
 ```js
