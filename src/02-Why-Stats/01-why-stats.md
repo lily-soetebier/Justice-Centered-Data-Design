@@ -82,7 +82,7 @@ There are five practice methods for structuralism:
 
 **Question**: According to the SFSJ authors, what is ***feminist empiricism***? And, what issues does it recognize as important to recognize and remedy? Be sure to discuss why it emphasizes the importance of critically reflecting on aspects of the ***context*** of empirical work.
 
-Your_response_here
+Feminist empiricism is a newer tradition of empirical thought that opposes several aspects of traditional empiricism. It calls for the recognition of the impact that context has on the collection of data, and challenges the idea that knowledge is an individual pursuit. Rather feminist empiricism suggests that knowledge making happens as a community, such as with the scientific community. The reason it suggests focusing on these aspects is because they drastically impact the interpretation of the data.
 
 ## 3. Questions About "The future of ethics and social justice" in TPC
 
@@ -96,27 +96,26 @@ Your_response_here
 
 **Question**: Briefly define each of the critical issues discussed: Cultural Imperialism, Marginalization, and Intersectional Oppression.
 
-**Cultural Imperialism**: Your_response_here
+**Cultural Imperialism**: Cultural imperialism refers to the erasure of cultural and subcultural norms by a dominant colonial power. It also refers to the idea that while we are somewhat removed from the onset and initial violence of colonial powers, the subjugation of minority cultures and cultural practices is still ongoing and has become a systemic norm. Inherent in this is the acceptance of these changes as "natural/organic processes" rather than violent acts.
 
-**Marginalization**: Your_response_here
+**Marginalization**: Marginalization refers to the exclusion of particular groups of people from meaningful participation in society. These groups are have less social power, and fewer opportunities to increase their social power due to the lingering impacts of imperialism on societal structure, thus blocking their ability to participate in society wide decision making, and other important practices.
 
-**Intersectional Oppression**: Your_response_here
+**Intersectional Oppression**: Intersectional oppression refers to the idea that individuals can belong to multiple marginalized groups, and thus experience the societal oppression associated with these identities in a complex and interconnected manner.
 
 ### 3.3. Defining the 3Ps to help us recognize oppression
 
 **Question**: Define each of the 3Ps below. Explain how each helps us recognize oppression.
 
-**Power**: Your_response_here
+**Power**: When recognizing oppression, power refers to a set of hierarchies in social relationships. The article defines power in four ways. Structural power addresses institutional level relationships, and how these systems, and the systems connected to them benefit at the expense of the marginalized. Disciplinary views of power examine the role of control in social situations. Interpersonal power looks at the individual everyday interactions and how they support issues with interpersonal power. Finally, hegemonic power is a framework through which to look at all of these different sets of "power" as one cohesive system.
+**Privilege**: Certain groups, depending on their positionality, experience varying amounts of constraints and freedoms. 
 
-**Privilege**: Your_response_here
-
-**Positionality**: Your_response_here
+**Positionality**: Positionality refers to identity's flexibility and how the different intersections of individual identity will influence a person's proximity to power in a given situation.
 
 ### 3.4. Why an SJ ethic?
 
 **Question**: Why do Lindgren, Gerdes, and Lawrence position a "SJ ethic" as essential to the future of TPC? What types of problems does it help TPC tackle?
 
-Your_response_here
+TPC sits at the intersection of humans and technology, positioning TPC professionals and scholars as key actors in confronting the cultural imperialism that is rife within technical spaces. Because we are positioned to impose human perspectives and impacts on technology, if we employ an SJ ethic in our work we can begin to dismantle systems of oppression and uplift marginalized techne. Technical communicators are the user advocates, so we have a duty in a way to advocate for all users across intersecting identities.
 
 ## 4. Questions About "Statistical Genre Analysis" (SGA)
 
