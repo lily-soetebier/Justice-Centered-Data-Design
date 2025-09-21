@@ -59,13 +59,22 @@ With these goals for the texts in mind, please respond to the questions herein a
 
 **Question**: Describe how the S4SJ authors define and use the term **positivism**. How do they suggest it is different from **post-positivism**? According to the authors, why are both paradigms important to social workers? Now, how do you imagine it is important for TPC professionals?
 
-Your_response_here
+Positivism is a particular research paradigm. The positivist view od social research is that you can understand social behavior through the lens of scientific rationality and objectivity.
+
+Post-positivists argue that taking a scientific view ignores and overwrites the perspectives from the individual being studied. Instead, there should be input from the "subject" rather than objective observation.
 
 ### 1.3. On the "*structural perspective*"
 
 **Question**: Name and define the different parts of the ***structural perspective***. Be sure to cover the parts related practice and research.
 
-Your_response_here
+The structural perspective refers to an approach to social work and research that seeks to understand and improve quality of life on a systemic/structural scale by improving the social environment, and the relationships individuals have with and within it.
+
+There are five practice methods for structuralism:
+1. **Defense of the Client:** The idea that a social worker/researcher's role is to defend their client/subject from the oppressive systems around them.
+2. **Collectivization:** Connecting clients with support networks to reduce their felt sense of isolation.
+3. **Materialization:** A lens of analysis that focuses on the material causes for immaterial social issues.
+4. **Increasing Client power in the Relationship:** the idea that clients should have an equal footing in the research being done with them, by using language, rationales, and transparency to induct them into the research process.
+5. **Power through Personal Change:** Maximize the client's potential for improving their own situation as a result of the research/work..
 
 ## 2. Questions about "The history of empiricism"
 
