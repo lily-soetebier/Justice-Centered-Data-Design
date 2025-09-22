@@ -123,30 +123,38 @@ TPC sits at the intersection of humans and technology, positioning TPC professio
 
 **Question**: How do Graham et al define and discuss what constitutes "big" data? How does their definition differ from what you have heard before you read this article?
 
-Your_response_here
+Big data is a collection of data points that exceed the capacity for current methodologies to analyze effectively. For TPC this scale is much smaller than in other fields, such as computing. 
+
+This is the first definition I have encountered for big data personally, but it aligns relatively well with my perceptions. Although, I will say my initial scoping was on the larger end that Graham et al. mention being outside of the scope of TPC.
 
 ### 4.2. On SGA
 
 **Question**: Summarize the following parts of SGA:
 
-1. What TPC problems SGA addresses,
+1. What TPC problems SGA addresses
+   
 2. What data they used to demonstrate its potential,
 3. What questions SGA data and methods enable TPC to ask, and
 4. What methods it uses to do so.
 
-Your_response_here
+Past methodologies for data analysis in TPC are too narrowly scoped to be effectively applied to big data. SGA expands that capacity to be able to analyze large data set, rather than focusing on analyses of "individual exemplar artifacts". SGA combines several methodologies, including rhetorical analysis and qualitative and quantitative methods of verbal data analysis to create a representation of a data set.  It allows scholars to ask questions that can provide relatively generalizable answers, such as questions of genre or field.
 
 ## 5. "Science is a social endeavor."
 
 **Question**: Discuss what this statement means to you. Then, discuss any connections, confusion, and/or questions that you recognize with a SJ ethic and structural perspective?
 
-Your_response_here
+To me, this phrase calls me back to an analysis conducted by Bruno Latour on the happenings within a laboratory. In this chapter from his book *Laboratory Life* Latour performs a though experiment where he takes on the persona of a complete outsider to science and the scientific process and performs a kind of task analysis through the lens of this persona. In doing so, the persona categorizes the act of science as the act of writing and communicating observations between different people. I think that the idea that the knowledge building of science being rooted in the ability to share observations is what makes it a social endeavor. Without the sharing, there is no science, simply observation.
 
 ## 6. Translating the structural approach into TPC / Other Humanities Fields
 
 **Question**: After considering all of these texts -- their exigencies, propositions, and methods -- translate Mullaly's broader definition of the *structural approach* and Moreau's *practice methods* in social work into the domain of TPC or humanist domain of work by putting them into conversation with Lindgren, Gerdes, and Lawrence's SJ ethic and Graham et al's statistical genre analysis. In other words, begin to develop your own structural perspective and set of practices that translates Moreau's 5 practices. Finally, add one new practice approach specific to TPC/your domain.
 
-Your_response_here
+1. Defense of the client in TPC becomes user advocacy, and the role of the communicator to intercede on behalf of the user's needs.
+2. Collectivization becomes user centered design, and making this centering visible to the user.
+3. Materialization in TPC is the ability for a TPC professional to recognize the faults within a particualr system, and come up with solutions in the form of features and documentation.
+4. This one is, in my opinion, directly applicable in its original form. However, I think adding in taking the time to listen to the input of users, and ensuring that our language in any deliverable meets them where they are is key.
+5. Enhancing the client power in TPC can be seen in the idea of "writing to learn to do". Meaning the materials we create should allow the user to become more independent and be able to learn/function without having to rely on documentation as often.
+6. One aspect I would add is the need to connect the client/user with the expert -- not just the writer. I think that this is a particularly important practice in science communication as there is a need to demystify the scientific community and continue to build trust (now more than ever) between users adn SMEs.
 
 ## Submission
 
