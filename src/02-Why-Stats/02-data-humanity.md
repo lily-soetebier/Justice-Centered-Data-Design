@@ -86,48 +86,51 @@ False binaries and hidden hierarchies refer to the way that artificial divisions
 
 **Question**: Create a bulleted list of short excerpts and summary statements where Guyan defines "queer data" and "intersectional LGBTQ data" in the introduction. Be sure to accompany all excerpts and paraphrases with page number locations in the PDF.
 
-- "Short excerpt 1" (p. xx)
-- "Short paraphrase 1" (p. xx)
-- "Short excerpt 2" (p. xx)
-- "Short paraphrase 2" (p. xx)
-- ...
+- An approach to data that disrupts the binaries of gender and sexuality so often put in place (7)
+- Captures the lives and experiences of LGBTQ people (7)
+- Cannot speak for these complex individuals and identities on their own (7)
 
 **Question**: Based on your list above, write your own movie tagline, i.e., a short and entertaining one-liner that tries to capture one of the main aspects of "queer data", and another tagline about "intersectional LGBTQ data."
 
+Using a collection of information points to give touch points for describing a multitude of queer experiences.
 
 ### 2.2 Guyan's exigence for the book
 
 **Question**: Why did Guyan write this book? What was his exigence?
 
-YOUR_RESPONSE_HERE
+Guyan wrote this book in response to the misconceptions they encountered regarding LGBTQ data from the students and staff at their univeristy.
+
+Guyan explains: "University practitioners, tasked  with the responsibility to collect data, contacted me to ask how to undertake meaningful analysis of a minority group when the numbers were 'too small'? What was  the rationale for collecting data on identity characteristics other than gender or  race? Did they have any business asking staff and students about their sexual orientation? It also became clear to me that, both inside and outside higher education, a  small number of campaign groups had weaponized gender, sex and sexuality data  in an attempt to roll back the rights of LGBTQ people. "(10)
 
 ### 2.3 "Prescriptive" versus "descriptive"
 
 **Question**: What does Guyan mean when he labels terms like gender, sex, and sexuality as being descriptive—*not* prescriptive (see pp. 13-14 in particular)? Explain the differences between the two with an example from each of the terms.
 
-YOUR_RESPONSE_HERE
+Prescriptive refers to the idea that the data describes who an individual is and what they are experiencing. It is the idea that the data is telling the full complete story.
+
+Descriptive refers to the way that users can use data to describe their experiences, or at least part of their experinces.
 
 ### 2.4 "'Visibility is a trap'"
 
 **Question**: Guyan cites Foucault's idea about how "'visibility is a trap'" (p. 20 of the PDF). What does this expression mean, and why does Guyan draw parallels between Foucault's original use of it with issues of power and data? Be sure to illuminate your discussion with specific examples that Guyan uses in the book.
 
-YOUR_RESPONSE_HERE
+While visibility can be empowering in certain circumstances, it can also expose vulnerable populations to further threats. Guyan uses the idea that since stats on violence against trans people were made public, the occurrence of this violence has also increased.
 
 ## 3. Questions about "The topology of race"
 
-**Context**: In this reading, you read a shorter excerpt from a longer review essay by Lee. In this review essay, Lee summarizes Kwame Anthony Appiah's collection of essays, *In My Father's House*, as a means of instigating new lines of inquiry for legal studies.
+**Context**: In this reading, you read a shorter excerpt from a longer review essay by Lee. In this review essay, Lee summarizes Kwame Anthony Appiah's collection of essays, *In My Father's House*, as a means of instigating new lines of inquiry for legal studies. 
 
 ### 3.1 Race & racism: From conjecture to questions of definition
 
 **Question**: Why does Lee think it important that Appiah changed the standard line of inquiry in legal studies from "whether racism exists" (p. 441) to "what race and racism are"? What "overdetermined" (p. 441) parts or race, i.e., issues about race, does this definitional question bring into focus for deliberation? Be sure to ***define*** and discuss Appiah's position about race as being essential/biological or not and being cultural or not. Indeed, pay close attention to Appiah's definition of culture.
 
-YOUR_RESPONSE_HERE
+Appiah "questions the uncritical use of biological and essential concepts of race as the premises of anti-racist struggles" (441). Rather, he thinks that race is better constructed by combining shared aspects of culture across a people. He believes this as race, in his opinion, is too often used in place of "culture" as a way to define differences in temperment and opinion rather than morphology. Thus, if this is how we are using race, it would be better to define it in an aligned manner.
 
 ### 3.2 Race as multiplicitous
 
 **Question**: What does Lee mean by "race is always multiplicitous because social contexts are multiplicitous" (p. 447)? Use the Shaw v. Reno case to help you explain how this challenges both essentialist/biological definitions of race & Appiah's race as synonomous with culture.
 
-YOUR_RESPONSE_HERE
+There is good in bad with bringing race to the forefront of identity and convesation as the context can change if race can be used to harm or hurt an individual. In the Shaw v Reno case, the argument is made that recognizing race always leads to racism due to the biological conflation of the definition(445), however that is not the case as the scholars have defined. In many cases recognizing ace can be a recognition of shared experienes, good or bad — muliticipitous.
 
 ## 4. Questions about a data team's "rhetorical process of data"
 
@@ -135,19 +138,23 @@ YOUR_RESPONSE_HERE
 
 **Question**: Briefly describe the "god trick" problem. Also, discuss what connections you recognize between the "god trick" problem and some issues raised in our other readings.
 
-YOUR_RESPONSE_HERE
+God Trick: the belief that the scientific process which collects and analysexes data, are neutrally objective adn trasncend the constraints of our situated, material realities of interpreation and communication 
+
+The insinuation that scientific thought/data collection can in any way be separated from human experience, and thus influence if not bias, is a fallacy. These intersections between identity, power, and data interpretation have been proven in these readings to be real, and significant to our understanding of data.
 
 ### 4.2 What's stasis and stasis networks?
 
 **Question**: Briefly define stasis and stasis networks. Explain what stasis networks provides qualitative researchers?
 
-YOUR_RESPONSE_HERE
+Stasis: a procedure designed to guide people's deliberation toward consesus about an issue through a sequence of guiding questions
+Stasis networks: describe how the stases are interrelated by understanding them as nodes with connections to eachother and overarching questions
+
+Stases can help qualitative researchers understand the moves of deliberation being made in relationship to the artifacts and practices of a particular deliberation.
 
 ### 4.3 What's the "DMT cluster"?
 
 **Question**: What's the *DMT cluster*, and how did connect to observations about the data team's judgment about the *quality of metrics*?
-
-YOUR_RESPONSE_HERE
+The DMT cluster refers to co-occurrence of definitive, metrics, and translative nodes. "The DMT cluster illuminates how team members’ work to collect, process, analyze, or visualize data evinces this claim." (491)
 
 ## 5. Synthesis Response
 
