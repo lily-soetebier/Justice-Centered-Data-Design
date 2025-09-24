@@ -49,13 +49,36 @@ All PDF copies are available in our learning management system.
 
 **Question**: According to D'Ignazio and Klein, what principles concern data and "power"? Define and discuss each principle below. Be sure to note the important questions to ask about data and power.
 
-YOUR_RESPONSE_HERE
+- Examine Power: Analyze and critique how power operates in the world.
+  - Who has the power?
+  - What does it mean to have that power?
+  - Where is that power coming from?
+- Challenge Power: Confront and oppose unequal power structures and work towards justice.
+  - Is the power imbalance just?
+  - What can be done to empower the oppressed?
+  - How do we establish a system post power structure?
+- Elevate Emotion and Embodiment: Value multiple forms of knowledge including that which comes from being living bodies in our world.
+  - What can be learned from lived experiences?
+  - How do lived experiences differ?
+- Rethink Binaries: Challenge the gender binary, and other forms of classification that perpetuate oppression.
+  - What binaries (or other forms of multiplicity) exist?
+    - Are they stark or a spectrum?
+- Embrace Pluralism: The most complete knowledge comes from synthesizing multiple perspective with priority given to local, Indigenous, and experiential ways of knowing.
+  - Who was already doing this work?
+  - What can we learn from others doing the same/similar work?
+  - How do we include all present communities in discussion?
+- Consider Context: Data is never neutral, but rather the product of unequal systems.
+- Make Labor Visible: Data science requires the work of many hands, so making this work visible should inherently be part of data work.
 
 ### 1.2 Data: Objective mirror, or not?
 
 **Question**: What do D'Ignazio and Klein mean by issues of "false binaries and hidden hierarchies" (p. 3)? Then, explain how principles 3, 5, 6 and 7 each approach such issues.
 
-YOUR_RESPONSE_HERE
+False binaries and hidden hierarchies refer to the way that artificial divisions are created to conceal other hierarchies. 
+3: Engage with the emotions surrounding the data, and understand how they exacerbate or can combat these issues.
+5: Understand the concealed hierarchies established in communities, and break those down before engaging with data.
+6: Understand the contexts that create the binaries.
+7: Labor on different ends of the binary have different levels of visibility.
 
 ## 2. Questions about Queer Data
 
@@ -71,7 +94,6 @@ YOUR_RESPONSE_HERE
 
 **Question**: Based on your list above, write your own movie tagline, i.e., a short and entertaining one-liner that tries to capture one of the main aspects of "queer data", and another tagline about "intersectional LGBTQ data."
 
-YOUR_TAGLINE_HERE
 
 ### 2.2 Guyan's exigence for the book
 
