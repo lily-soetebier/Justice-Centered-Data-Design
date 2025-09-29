@@ -221,21 +221,26 @@ Firstly, we will learn how the RFS method uses D3's `.rollups()`, which is just 
 
 <!-- Example generic output from rollups() -->
 ```javascript
-// Example 1-Level InternMap transformed as Array of nested Arrays
+// Example 1-Level InternMap transformed as Array of nested Arrays 
+// represents one single grouping (i.e. by race)
 [
   ["key1L1", Number],
   ["key2L1", Number],
   ["key3L1", Number],
   //more entries...
 ]
+//key = the group, number = absolute frequency at that level
+
 
 // Example 2-Level InternMap transformed as Array of nested Arrays
+//represents nested grouping (i.e. by race and gender)
 [
   [
     "key1L1", [
       ["key1L2", Number],
       ["key1L2", Number],
       //more L2 entries for key1L1 ...
+      // key1L1= gender; key1L2= race
     ]
   ],
   [
@@ -243,10 +248,12 @@ Firstly, we will learn how the RFS method uses D3's `.rollups()`, which is just 
       ["key2L2", Number],
       ["key2L2", Number],
       //more L2 entries for key2L1 ...
+      // key2L1= gender; key2L2= race
     ]
   ],
   //more L1 entries...
 ]
+//Can be looped through like a usual array, but the more groupings, the more loops it will take to get to the inner most data
 
 // And so on, based on the number of levels rolled up
 ```
@@ -288,7 +295,7 @@ Ok, so we want to create a desired ***grouping*** of `ballot_rtn_status` > `race
     2. Add second param: the computation to perform on the rolled up data. In this case, we want the absolute frequency of ballot statuses per race.
 
 <!-- Example rollups() -->
-```javascript
+```js
 /**
  * .rollups()
  * @return: a flattened version of InternMap:
@@ -296,7 +303,7 @@ Ok, so we want to create a desired ***grouping*** of `ballot_rtn_status` > `race
 **/
 const afStatusByRace = d3.rollups(
   ncVotersAll,
-  v => v.length, // length of leaf node: ballot_rtn_status
+  v => v.length, // length of leaf node: ballot_rtn_status -> what we use when we are counting the absolute frequency in categories
   d => d.race,
     d => d.ballot_rtn_status
 )
@@ -307,7 +314,7 @@ const afStatusByRace = d3.rollups(
 </p>
 
 <!-- afStatusByRace output -->
-```javascript
+```js
 // Convert to render on page
 afStatusByRace
 ```
@@ -318,9 +325,10 @@ Rollups is great at quickly grouping flat data, such as an array of objects, by 
 
 To remedy the above issue, we can *flatten our nested hierarchies of arrays* assigned to `afStatusByRace`. By flattening the rolledup groups, again, we can reassign the object key-value pairs, which will help us later when we need to reduce the data to either ACCEPTED or REJECTED statuses. Indeed, we will consistently be reminded how when we work with data in JS, Observable, and D3 that we need our data to be a "flat" array with objects:
 
+*Our goal is to get back to an array of objects*
 ```javascript
 
-[{...},{...},{...}, ...]
+[{...},{...},{...},]
 
 ```
 
@@ -392,25 +400,29 @@ In this second video, I explain the code inside of the custom `oneLevelRollUpFla
 
 Ok, now that you have watched the above video about the `oneLevelRollUpFlatMap()` function. Import it from the `./utils/utils.js` file in the codeblock below.
 
-```javascript
+```js
 // Convert me and import oneLevelRollUpFlatMap()
-import {PUT_ANY_FUNCTIONS_IN_HERE, SEPARATE_MORE_THAN_ONE, WITH_COMMAS} from "enter/path/here.js"
+import {oneLevelRollUpFlatMap} from "./utils/utils.js"
 
 ```
 
 Now, see if it worked!
 
-Use the imported function in the below codeblock to rollup and flatten `ncVotersAll` by (1) `race` and (2) `ballot_rtn_status`.
+Use the imported function in the below codeblock to rollup and flatten `ncVotersAll` by (1) `race` [ignore and (2) `ballot_rtn_status`.]
 
-```javascript
+```js
 // Convert and use `oneLevelRollUpFlatMap()` on `ncVotersAll`
-const byRaceAndBallotStatus = ADD_FUNCTION_HERE
+const byRace = oneLevelRollUpFlatMap(
+  ncVotersAll,
+  "race",
+  "count",
+)
 ```
 
 Ok, let's see if `byRaceAndBallotStatus` shows up here by rendering it to the page.
 
-```javascript
-byRaceAndBallotStatus
+```js
+byRace
 ```
 
 <div class="error-caption">
