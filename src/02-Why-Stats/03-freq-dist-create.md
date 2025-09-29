@@ -197,19 +197,40 @@ Finally, inside of the `/src/data/nc-voters/provenance/` folder, you can also re
 
 **Question**: After reviewing the above information, how would a SJ ethic inform your intiial understanding of the data, its collected values, and its context? List out in other information or questions that you sense might be missing about the data.
 
+#### Questions I hope to get answered
 * How were these categories defined?
 * How were people able to enter their responses (i.e.  short answer, multiple choice w/ multi select or single choice) 
 * the way that data is formatted and collected makes it hard to see the intersections of these identities
+#### Observations
 * Sex and gender conflated and limited
+* Method of request/return could be interesting to look at
+#### New Questions
+* If someone requested the ballot on behalf of someone else, is that record kept?
+* How common is paper vs online form?
+  * Are there differences?
+* 
 
 
 **Question**: Based on the case scenario as a communicator at Protect Democracy, and a SJ ethic in mind, what questions, i.e., angles, do you think may be helpful to meet the needs of your situation. Discuss any columns/fields that you are surprised about or spark any curiosities, and create a list of questions they spark in you.
 
-ENTER_YOUR_RESPONSE_HERE
+I think the clearest comparision that needs to be made in this scenario is the return status, race, and reason for acceptance/rejection (which is part of return status).
 
+I think another angle could be looking at the form through which the ballot was requested/submitted could shed light on the situation as well.
+
+* What does spoiled-EV mean?
+  
 **Question**: What can you understand about the `ballot_rtn_status` column? In other words, what types of values are possible?
 
-ENTER_YOUR_RESPONSE_HERE
+* accepted
+* returned undeliverable
+* spoiled-ev (not sure what this means)
+* Accepted - Cured
+* spoiled
+* retuerned after deadline
+* pending cure
+* id not provided
+
+Essentially, it seems it is accepted or the reason for rejection.
 
 ## 2.3.4 Calculate Absolute Grouped Frequencies with RFS Method
 
