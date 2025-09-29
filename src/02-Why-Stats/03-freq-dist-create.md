@@ -59,8 +59,9 @@ Again, we are going to continue working with the 2024 NC absentee voter CSV file
 2. Assign the data to a variable named `ncVotersAll`.
 3. Render it to the page in a separate codeblock.
 
-```javascript
+```js
 // FileAttachment() code here assigned to `ncVotersAll`
+let ncVotersAll = FileAttachment("./../data/nc-voters/absentee_2024_aggregated.csv").csv({typed:true})
 ```
 
 Output the data as an interactive array of objects below:
@@ -69,7 +70,7 @@ Output the data as an interactive array of objects below:
   Interactive output of full data set in <code>ncVotersAll</code>
 </p>
 
-```javascript
+```js
 // Convert to render on page
 ncVotersAll
 ```
@@ -84,7 +85,10 @@ Observable has a suite of modules called **Inputs**. We're going to learn how to
 // Most basic Inputs.table()
 Inputs.table(ncVotersAll)
 ```
-
+```js
+// Most basic Inputs.table()
+Inputs.table(ncVotersAll)
+```
 Notice how the table "lazily" loads data as you scroll down the data, so your browser doesn't explode!
 
 ## E2. Add custom features for `Inputs.table()`
@@ -126,19 +130,43 @@ Let's create a new table below that reduces what we want to see by implementing 
       ballot_request_party: "Ballot Party",
       ballot_rtn_status: "Ballot Status",
     }
+    
     ```
 
 Ok, now I want you to put all of those pieces together in your own `Inputs.table()` with the NC absentee voter data. Here's what it should look like:
 
 ![Example output table](./../assets/images/2-why-stats/02-why-stats-ex-table.png)
 
-```javascript
+```js
 // Insert your table here
 Inputs.table(
   // The array of objects
   ncVotersAll,
   {
-    // enter each customizing property in this object
+   columns: [
+      "id_num", "county_desc", "race", "gender", "age",
+      "ballot_request_party", "ballot_rtn_status"
+    ],
+
+  rows: 25,
+
+  width: {
+      id_num: 20,
+      county_desc: 90,
+      gender: 40,
+      age: 20,
+      race: 90,
+      ballot_request_party: 90,
+    },
+    header: {
+      id_num: "ID",
+      county_desc: "County",
+      race: "Race",
+      gender: "Gender",
+      age: "Age",
+      ballot_request_party: "Ballot Party",
+      ballot_rtn_status: "Ballot Status",
+    }, 
   }
 )
 ```
@@ -167,7 +195,7 @@ Finally, inside of the `/src/data/nc-voters/provenance/` folder, you can also re
 
 **Question**: After reviewing the above information, how would a SJ ethic inform your intiial understanding of the data, its collected values, and its context? List out in other information or questions that you sense might be missing about the data.
 
-ENTER_YOUR_RESPONSE_HERE
+* How
 
 **Question**: Based on the case scenario as a communicator at Protect Democracy, and a SJ ethic in mind, what questions, i.e., angles, do you think may be helpful to meet the needs of your situation. Discuss any columns/fields that you are surprised about or spark any curiosities, and create a list of questions they spark in you.
 
