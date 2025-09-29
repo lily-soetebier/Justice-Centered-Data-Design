@@ -61,7 +61,7 @@ Again, we are going to continue working with the 2024 NC absentee voter CSV file
 
 ```js
 // FileAttachment() code here assigned to `ncVotersAll`
-let ncVotersAll = FileAttachment("./../data/nc-voters/absentee_2024_aggregated.csv").csv({typed:true})
+let ncVotersAll = FileAttachment("./../data/nc-voters/nc_absentee_mail_2024.csv").csv({typed:true})
 ```
 
 Output the data as an interactive array of objects below:
@@ -147,11 +147,13 @@ Inputs.table(
       "id_num", "county_desc", "race", "gender", "age",
       "ballot_request_party", "ballot_rtn_status"
     ],
+    // columns: is expecting an array of strings that correspond to the keys (columns) in the array of object
 
   rows: 25,
 
   width: {
-      id_num: 20,
+      id_num: 90,
+      // I made  the id num column wider because for some reason my numbers were too long for what was set
       county_desc: 90,
       gender: 40,
       age: 20,
@@ -181,7 +183,7 @@ Also, as we move through this section of the book, we need to cultivate a critic
 
 ### About the NC absentee voter ballot data, and its provenance
 
-Before we move forward, it's a good idea to understand the data with any available external resources to uderstand its provenance. ***Provenance*** is essentially understanding the original context of people, places, intentions, and definitions of the dataset.
+Before we move forward, it's a good idea to understand the data with any available external resources to understand its provenance. ***Provenance*** is essentially understanding the original context of people, places, intentions, and definitions of the dataset.
 
 Perhaps many of us, myself included, were not immediately knowledgable about this subject or process of voting via mail. Here are a couple of primer points that I have learned through some initial reading of the archived 2024 version of NC's website about mail-in/absentee voting ([see ncsbe.gov on archive.org](https://web.archive.org/web/20240108154755/https://www.ncsbe.gov/voting/vote-mail)):
 
@@ -195,7 +197,11 @@ Finally, inside of the `/src/data/nc-voters/provenance/` folder, you can also re
 
 **Question**: After reviewing the above information, how would a SJ ethic inform your intiial understanding of the data, its collected values, and its context? List out in other information or questions that you sense might be missing about the data.
 
-* How
+* How were these categories defined?
+* How were people able to enter their responses (i.e.  short answer, multiple choice w/ multi select or single choice) 
+* the way that data is formatted and collected makes it hard to see the intersections of these identities
+* Sex and gender conflated and limited
+
 
 **Question**: Based on the case scenario as a communicator at Protect Democracy, and a SJ ethic in mind, what questions, i.e., angles, do you think may be helpful to meet the needs of your situation. Discuss any columns/fields that you are surprised about or spark any curiosities, and create a list of questions they spark in you.
 
