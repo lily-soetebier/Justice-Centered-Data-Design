@@ -221,7 +221,7 @@ export const sumUpWithReducerTests = (reducerFunctions, reducerProperties, data,
 
   }
 
-  // 6. Return array of freq objects
+  // 6. Return array of freq objects 
   return freqResults
 }
 

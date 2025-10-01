@@ -140,7 +140,7 @@ Ok, now I want you to put all of those pieces together in your own `Inputs.table
 
 ![Example output table](./../assets/images/2-why-stats/02-why-stats-ex-table.png)
 
-```js
+```javascript
 // Insert your table here
 Inputs.table(
   // The array of objects
@@ -648,15 +648,33 @@ Ok, tabulate the rolledup and summed-up results with `Inputs.table()`. Be sure t
 3. Sort the table based on what you deem the most helpful combo of column and ascending vs. descending.
 4. Be sure to provide a short response to the question about your table design.
 
-```javascript
+```js
 // Enter your table here
+Inputs.table(
+  ballotResults,
+  {
+    header: {
+      race: "Race", 
+      ballot_rtn_status: "Ballot Status",
+      count: "Total",
+    },
+     width: {
+      race: 90,
+      ballot_rtn_status: 90,
+      count: 40,
+    },
+  }
+)
 ```
 
 ### Question: Explain your table design choices.
 
 **Q**: What *insights* and *new questions* did you garner from it that you hope to also illustrate/provide for your audience?
 
-ENTER_YOUR_RESPONSE_HERE
+I renamed ballot_rtn_status to Ballot Status to make the data more accessible to a non-expert audience.  I removed the concept of "return" from the data as at this point the election has completed and all that is needed for our audience to know is whether or not the ballot was accepted or rejected in the end (meaning its current status). I also wrote everything out in full words.
+
+Another choice I made was to change count to total, meaning the total number of ballots for that category as this felt more intuitve than absolute frequency/count.
+
 
 ## Conclusion
 
