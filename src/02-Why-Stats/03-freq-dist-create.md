@@ -2,6 +2,9 @@
 
 ```js
 import {utcParse,utcFormat} from "d3-time-format";
+import {twoLevelRollUpFlatMap} from "./utils/utils.js"
+// import {oneLevelRollUpFlatMap} from "./utils/utils.js"
+import {sumUpWithReducerTests} from "./utils/utils.js"
 ```
 
 ## Start Your GH Workflow
@@ -489,21 +492,21 @@ In this video, follow along as I explain the code for the `twoLevelRollUpFlatMap
 
 After you have watched the above video, it is time for you to try this custom function with the two example variables used in the our running angle.
 ```js
-import {twoLevelRollUpFlatMap} from "./utils/utils.js"
+
 ```
 ```js
 // Convert and create your own two-level grouping
-let byRaceAndAge = twoLevelRollUpFlatMap (
+let byRaceAndStatus = twoLevelRollUpFlatMap (
   ncVotersAll,
   "race",
-  "age",
+  "ballot_rtn_status",
   "count",
 )
 ```
 
 ```js
 // Convert and output your variable here
-byRaceAndAge
+byRaceAndStatus
 ```
 
 ## 2.3.7 RFS 3. Sum it up with D3's .sum()!
@@ -584,17 +587,47 @@ Follow along with me in the video below to learn how to create a custom function
 </video>
 
 <!-- Your Reducer Functions -->
-```javascript
+```js
 // Convert and create your own reducer functions akin to "ACCEPTED" vs "REJECTED"
+const getAcceptedBallots = (d) => {
+  if (d.ballot_rtn_status != null && d.ballot_rtn_status.startsWith("ACCEPTED") == true) {
+    return d.count
+  }
+
+  else {
+    return 0
+  }
+}
+
+const getRejectedBallots = (d) => {
+  if (d.ballot_rtn_status != null && d.ballot_rtn_status.startsWith("ACCEPTED") == false) {
+    return d.count
+  }
+  else {
+    return 0
+  }
+}
 ```
 
+
 <!-- Call and use sumUpWithReducerTests() -->
-```javascript
+```js
 /**
  * Convert and use sumUpWithReducerTests().
  * Be sure to review the utils.js file, so you
  * can see the parameters needed for the function.
 **/
+const ballotResults = sumUpWithReducerTests(
+  [{type: "Accepted Ballot", func: getAcceptedBallots, }, {type: "Rejected Ballot", func: getRejectedBallots, },],
+   ["ASIAN","WHITE"],
+   byRaceAndStatus,
+   "race",
+  "ballot_rtn_status",
+  "count",
+)
+```
+```js
+ballotResults
 ```
 
 <p class="codeblock-caption">
