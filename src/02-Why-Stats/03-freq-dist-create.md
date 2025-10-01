@@ -654,9 +654,9 @@ Inputs.table(
   ballotResults,
   {
     header: {
-      race: "Race", 
+      race: "Voter's Race", 
       ballot_rtn_status: "Ballot Status",
-      count: "Total",
+      count: "Ballot Total",
     },
      width: {
       race: 90,
@@ -674,6 +674,8 @@ Inputs.table(
 I renamed ballot_rtn_status to Ballot Status to make the data more accessible to a non-expert audience.  I removed the concept of "return" from the data as at this point the election has completed and all that is needed for our audience to know is whether or not the ballot was accepted or rejected in the end (meaning its current status). I also wrote everything out in full words.
 
 Another choice I made was to change count to total, meaning the total number of ballots for that category as this felt more intuitve than absolute frequency/count.
+
+I also adjusted the width to evenly space the columns. I did not adjust the alignment as I felt it negatively impacted overall readability.
 
 
 ## Conclusion
