@@ -277,7 +277,7 @@ let afByWeekRaceStatus = threeLevelRollUpFlatMap(ncVotersAllUpdated, "ballot_req
   Interactive output of ballot's per week:
 </p>
 
-```javascript
+```js
 // Convert to output afByWeekRaceStatus
 afByWeekRaceStatus
 ```
