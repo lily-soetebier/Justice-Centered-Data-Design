@@ -297,7 +297,7 @@ The result should resemble the following output:
 ### 4.1 Write your reducer functions
 
 <!-- Reducer Functions -->
-```javascript
+```js
 /**
  * Write a reducer function that checks to make sure
  * ballot_rtn_status is NOT null and starts with "ACCEPTED"
@@ -306,13 +306,30 @@ The result should resemble the following output:
 **/
 
 // Now, do the same for what will become "REJECTED" statuses
+const getAcceptedBallots = (d) => {
+  if (d.ballot_rtn_status != null && d.ballot_rtn_status.startsWith("ACCEPTED") == true) {
+    return d.af
+  }
 
+  else {
+    return 0
+  }
+}
+
+const getRejectedBallots = (d) => {
+  if (d.ballot_rtn_status != null && d.ballot_rtn_status.startsWith("ACCEPTED") == false) {
+    return d.af
+  }
+  else {
+    return 0
+  }
+}
 ```
 
 ### 4.2 Write your reducer properties and objectify your reducer functions
 
 <!-- Reducer Properties & Objectify reducerFuncs -->
-```javascript
+```js
 const reducerProps = [
   // Let's reduce the data to these two values for race
   "WHITE", "BLACK or AFRICAN AMERICAN"
@@ -321,11 +338,11 @@ const reducerProps = [
 const reducerFuncs = [
   {
     type: "ACCEPTED",
-    func:  // ENTER FUNCTION TO EVAL AS "ACCEPTED"
+    func:  getAcceptedBallots,
   },
   {
     type: "REJECTED",
-    func:  // ENTER FUNCTION TO EVAL AS "REJECTED"
+    func:  getRejectedBallots,
   },
 ]
 
@@ -342,6 +359,9 @@ const uniqueListOfWeekNumbers = getUniquePropListBy(
   "ballot_req_dt_week"
 )
 ```
+```js
+uniqueListOfWeekNumbers
+```
 
 ### 4.3 Create custom for loop to calculate sums & percentages
 
@@ -350,7 +370,7 @@ Instead of creating a generalizable function for all three-level cases, some tim
 Convert the below codeblock and develop it further in this notebook to complete the task. We're not creating a module, because sometimes the complexity of the situation just demands using simpler methods to meet the situation. Indeed, there's nothing wrong with using the helpful set of for loops and conditions to get the job done. `:-)`
 
 <!-- Counting it all up through a series of custom loops -->
-```javascript
+```js
 // 1. Create array for tallied frequency results
 const afGroupedPercResults = []
 
@@ -364,11 +384,11 @@ for (const weekNumber of uniqueListOfWeekNumbers) {
 
   // 3. Loop through testor functions with your custom conditions
   //    - Use `for...in` so we can loop as many tests as provided
-  for () {
+  for (const testObj in reducerFuncs) {
 
     // 4. Loop through interested properties
     //    - Use `for...in` so we can loop as many tests as provided
-    for () {
+    for (const rProperty in reducerProps) {
 
       /**
        * 3. Calculate the sum grand total
@@ -382,13 +402,20 @@ for (const weekNumber of uniqueListOfWeekNumbers) {
        *    Make sure you ignore null values
        *    for `ballot_rtn_status`
       **/
-      const weekRaceAF = d3.sum(
+      const weekRaceAF = d3.sum (
         // Replace me with the iterable: `afByWeekRaceStatus`
+        afByWeekRaceStatus,
         // Replace me with your accessor function here
-
+        (d) => {
+          if (d.ballot_rtn_status != null) {
+            return d.af
+          }
+          else {
+            return 0
+          }
+          }
         // WARNING: Remember to separate your iterable and accessor with a comma
       )
-
       /**
        * 6. Tally absolute frequency based on
        *    1. WEEK NUMBER,
@@ -397,16 +424,21 @@ for (const weekNumber of uniqueListOfWeekNumbers) {
       **/
       const summedUpLevel = d3.sum(
         // Replace me with the `afByWeekRaceStatus` data
+        afByWeekRaceStatus,
         /**
          * Replace me with your accessor function.
          * Remember to use your reducer function and property
          * in a conditional statement to only count the
          * appropriate values.
         **/
-
+        (d) => {
+          if(d["race"] == reducerProps[rProperty]) {
+            const totalForCondition = reducerFuncs[testObj]["func"](d)
+            return totalForCondition
+          }
+        }
        // WARNING: Remember to separate your iterable and accessor with a comma
       )
-
       // 7. Push result to array of results
       /**
        * Now, we have all the data we need,
@@ -420,17 +452,17 @@ for (const weekNumber of uniqueListOfWeekNumbers) {
       **/
       afGroupedPercResults.push({
         // Add the current week
-        ballot_req_dt_week: ,
+        ballot_req_dt_week: weekNumber,
         // Add the current reducer property here
         race: reducerProps[rProperty],
         // Add the current reducer function "type"
-        ballot_rtn_status: ,
+        ballot_rtn_status: reducerFuncs[testObj]["type"],
         // Add the AF value for the week here
-        af: ,
+        af: summedUpLevel,
         // Calculate the percentage with:
         // the total for the grouped level (summedUpLevel)
         // divided by the total for the entire week (weekRaceAF)
-        percentage: ,
+        percentage: summedUpLevel/weekRaceAF,
       })
 
     }
@@ -442,7 +474,7 @@ for (const weekNumber of uniqueListOfWeekNumbers) {
   Output of afGroupedPercResults.
 </p>
 
-```javascript
+```js
 afGroupedPercResults
 ```
 
@@ -457,8 +489,12 @@ Tabulate the data here. Use `Inputs.table()`'s `format` option to express the pe
   You can then use <code>Inputs.table()</code>'s <code>format: { object_key: (x) => //use `x` in an accessor here, // Add more ... }</code> to express data appropriately. (Reference Observable Framework's <a href="https://observablehq.com/framework/inputs/table#inputs-3a86ea-4" target="_blank" rel="noreferrer noopenner">example in their docs</a>)
 </p>
 
-```javascript
+```js
 // Convert and tabulate afGroupedPercResults here
+let tablePercResults = Inputs.table(afGroupedPercResults)
+```
+```js
+tablePercResults
 ```
 
 ## Question: Why not percentage of all ballots per week?
