@@ -13,7 +13,9 @@ import {ascending,descending,sum,rollup,rollups} from "d3-array";
 import {utcParse,utcFormat} from "d3-time-format";
 
 // Add Your Date Parsers & Formatters Below
+export const parseDate = utcParse("%m/%d/%Y")
 
+export const formatWeekNumber = utcFormat("%U")
 
 // Complete this codeblock code from Chapter E-2.2, exercise 2 below
 export const mapDateObject = (data, dateString) => {
@@ -32,7 +34,8 @@ export const mapDateObject = (data, dateString) => {
        *    property for each `ballot`
        *    called `objField`.
       **/
-     ballot[objField] = parseDate(ballot[dateField])
+     ballot[objField] = parseDate(ballot[dateString])
+     ballot[weekField] = Number(formatWeekNumber(ballot[objField]))
     }
     return ballot
   })
