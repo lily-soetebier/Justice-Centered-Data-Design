@@ -13,7 +13,9 @@ import {ascending,descending,sum,rollup,rollups} from "d3-array";
 import {utcParse,utcFormat} from "d3-time-format";
 
 // Add Your Date Parsers & Formatters Below
+export const parseDate = utcParse("%m/%d/%Y")
 
+export const formatWeekNumber = utcFormat("%U")
 
 // Complete this codeblock code from Chapter E-2.2, exercise 2 below
 export const mapDateObject = (data, dateString) => {
@@ -32,7 +34,8 @@ export const mapDateObject = (data, dateString) => {
        *    property for each `ballot`
        *    called `objField`.
       **/
-     ballot[objField] = parseDate(ballot[dateField])
+     ballot[objField] = parseDate(ballot[dateString])
+     ballot[weekField] = Number(formatWeekNumber(ballot[objField]))
     }
     return ballot
   })
@@ -235,3 +238,42 @@ export const sumUpWithReducerTests = (reducerFunctions, reducerProperties, data,
  *     third level.
 **/
 
+export const threeLevelRollUpFlatMap = (data, level1Key, level2Key, level3Key, countKey) => {
+   const colTotals = rollups(
+    data,
+    (v) => v.length, //Count length of leaf node
+    (d) => d[level1Key], //Accessor at 1st level
+      (d) => d[level2Key], //Accessor at 2nd level
+        (d) => d[level3Key],//accessor at 3rd level
+  )
+
+  // 2. Flatten 1st grouped level back to array of objects
+  const flatTotals = colTotals.flatMap((l1Elem) => {
+
+    // 2.1 Assign level 1 key
+    let l1KeyValue = l1Elem[0]
+
+    // 2.2 Flatten 2nd grouped level
+    const flatLevels = l1Elem[1].flatMap((l2Elem) => {
+
+      // 2.2.1 Assign level 2 key
+      let l2KeyValue = l2Elem[0]
+
+       const finalLevel = l2Elem[1].flatMap((l3Elem) => {
+          let l3KeyValue = l3Elem[0]
+          return {
+          [level1Key]: l1KeyValue,
+          [level2Key]: l2KeyValue,
+          [level3Key]: l3KeyValue,
+          [countKey]: l3Elem[1]
+          }
+        })
+      return finalLevel
+      // 2.2.2 Return fully populated object
+    })
+    // 3. Return flattened array of objects
+    return flatLevels
+  })
+  // 3. Return the sorted totals
+  return flatTotals
+}
