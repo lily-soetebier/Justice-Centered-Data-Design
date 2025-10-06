@@ -407,7 +407,7 @@ for (const weekNumber of uniqueListOfWeekNumbers) {
         afByWeekRaceStatus,
         // Replace me with your accessor function here
         (d) => {
-          if (d.ballot_rtn_status != null) {
+          if (d.ballot_rtn_status != null && d.race == reducerProps[rProperty]) {
             return d.af
           }
           else {
@@ -534,19 +534,21 @@ tablePercResults
 
 Why did I direct you to sum the total for the week > race group, rather than calculate the percentage based on the grand sum total for the entire week across all included races? How are those percentages' respective *interpretive levels* different?
 
-Since there is a large total population difference in the 
+Because there is such a large difference in the total population size for each race allows for us to better understand the trends overall. It also allows for comparing patterns of acceptance and rejection between a marginalized and non-marginlized group and to be able to interpret the trends in the data with that level of intersectionality.
 
 ## Question: New insights?
 
 After tabulating the data, as well as sorting and reviewing it, what new angles and questions come to mind?
 
-YOUR_RESPONSE_HERE
+I think that adding sex into the groupings could provide an interesting level of intersectionality to the data. I also wonder how comparable these rates of acceptance vs rejection are with the smaller minority groups that there is data from.
 
 ## Question: Difficulties?
 
 After tabulating the data, as well as sorting and reviewing it, what difficulties are you experiencing as you review so much data in a table?
 
-YOUR_RESPONSE_HERE
+I find that the simple fact of having four entries per week makes it difficult to parse the table. I think that if there was a way to adjust, and group the 0s and the races together (similar to merging cells in sheets or excel) that would help with readability.
+
+It is also difficult to really see if there are trends in the data when it is in table form.
 
 ## Conclusion
 
