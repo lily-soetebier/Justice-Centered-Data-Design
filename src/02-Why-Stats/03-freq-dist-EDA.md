@@ -489,9 +489,42 @@ Tabulate the data here. Use `Inputs.table()`'s `format` option to express the pe
   You can then use <code>Inputs.table()</code>'s <code>format: { object_key: (x) => //use `x` in an accessor here, // Add more ... }</code> to express data appropriately. (Reference Observable Framework's <a href="https://observablehq.com/framework/inputs/table#inputs-3a86ea-4" target="_blank" rel="noreferrer noopenner">example in their docs</a>)
 </p>
 
+
 ```js
 // Convert and tabulate afGroupedPercResults here
-let tablePercResults = Inputs.table(afGroupedPercResults)
+
+const percFormatter = d3.format(".2%")
+let tablePercResults = Inputs.table(
+  afGroupedPercResults,
+  {
+    
+    header: {
+      ballot_req_dt_week: "Week Number",
+      race: "Voter's Race", 
+      ballot_rtn_status: "Ballot Status",
+      af: "Total Ballots",
+      percentage: "Percentage of Ballots",
+
+    },
+     width: {
+      ballot_req_dt_week: 15,
+      race: 90,
+      ballot_rtn_status: 60,
+      af: 40,
+      percentage: 20,
+    },
+    align: {
+      ballot_req_dt_week:"center",
+      race: "center",
+      ballot_rtn_status: "center",
+      af: "center",
+      percentage: "center",
+    },
+    format: {
+    percentage: (x) => percFormatter(x),
+    }
+  }
+)
 ```
 ```js
 tablePercResults
@@ -501,7 +534,7 @@ tablePercResults
 
 Why did I direct you to sum the total for the week > race group, rather than calculate the percentage based on the grand sum total for the entire week across all included races? How are those percentages' respective *interpretive levels* different?
 
-YOUR_RESPONSE_HERE
+Since there is a large total population difference in the 
 
 ## Question: New insights?
 
