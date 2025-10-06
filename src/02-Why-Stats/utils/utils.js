@@ -32,7 +32,8 @@ export const mapDateObject = (data, dateString) => {
        *    property for each `ballot`
        *    called `objField`.
       **/
-     ballot[objField] = parseDate(ballot[dateField])
+     ballot[objField] = parseDate(ballot[dateString])
+     ballot[weekField] = Number(formatWeekNumber(ballot[objField]))
     }
     return ballot
   })
