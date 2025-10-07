@@ -695,7 +695,7 @@ for (const weekNumber of uniqueListOfWeekNumbers) {
         // Calculate the percentage with:
         // the total for the grouped level (summedUpLevel)
         // divided by the total for the entire week (weekRaceAF)
-        percentage: (summedUpLevel/weekRaceAF) * 100,
+        percentage: (summedUpLevel/weekRaceAF),
       })
 
     }
@@ -761,17 +761,14 @@ Remember, you should be plotting the weeks along the x-axis and the percentage v
 - In `marks`, add week 45 information:
     - `Plot.dot()` to denote the last day to request a ballot: Oct 29th.
     - `Plot.tip()` to add an anchored tip to the dot for week 45. I'll provide you with the options to make your tip work:
-    ```javascript
+    ```js
     // 1. Custom Date() object for the last day to request
     const parseDate = utcParse("%m/%d/%y")
     const formatWeekNumber = d3.utcFormat("%W")
     // 2. Created as a list of objects in case I want to add more specific dates/tips
     const pollsWeekOfLastDay = [ { lastWeek: Number (formatWeekNumber( parseDate("10/29/24") ) ), }]
     // 3. The mark to includes in your Plot's `marks` array option
-    Plot.tip(
-      [`Last day\nto req\nOct 29th`],
-      {x: pollsWeekOfLastDay["lastWeek"], y: 0, dy: -5, dx: 277, anchor: "bottom"}
-    ),
+   
     ```
 
 Do the best you can to recreate what you see in the video example.
@@ -784,7 +781,11 @@ Do the best you can to recreate what you see in the video example.
 Plot.plot({
   // 1. Add comma-separated layout options
   y: {
-    label: "Percentage"
+    label: "Percentage",
+    domain: [0,.40]
+  },
+  x:{
+    domain: [0,45],
   },
   marks: [
     Plot.ruleY([0]),
@@ -804,8 +805,16 @@ Plot.plot({
         tip: true,
         stroke: "red", 
       }),
+     Plot.tip(
+      [`Last day\nto req\nOct 29th`],
+      {x: pollsWeekOfLastDay["lastWeek"], y: 0, dy: -5, dx: 277, anchor: "bottom"}
+    ),
+     Plot.dot(
+      [`Last day\nto req\nOct 29th`],
+      {x: pollsWeekOfLastDay["lastWeek"], y: 0, dy: 0, dx: 277, anchor: "bottom", stroke: "black", weight: 3, fill: "red", r: 5,}
+    ),
   ],
-
+  
 })
 ```
 
