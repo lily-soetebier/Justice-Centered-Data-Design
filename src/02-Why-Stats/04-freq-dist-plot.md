@@ -550,6 +550,175 @@ Finally, we need to reduce our grouped data to either being ACCEPTED or REJECTED
 </p>
 
 I recommend reusing your code from the last chapter.
+#### Code from last exercise
+```js
+const getAcceptedBallots = (d) => {
+  if (d.ballot_rtn_status != null && d.ballot_rtn_status.startsWith("ACCEPTED") == true) {
+    return d.af
+  }
+
+  else {
+    return 0
+  }
+}
+
+const getRejectedBallots = (d) => {
+  if (d.ballot_rtn_status != null && d.ballot_rtn_status.startsWith("ACCEPTED") == false) {
+    return d.af
+  }
+  else {
+    return 0
+  }
+}
+```
+
+### 4.2 Write your reducer properties and objectify your reducer functions
+
+<!-- Reducer Properties & Objectify reducerFuncs -->
+```js
+const reducerProps = [
+  // Let's reduce the data to these two values for race
+  "WHITE", "BLACK or AFRICAN AMERICAN"
+]
+
+const reducerFuncs = [
+  {
+    type: "ACCEPTED",
+    func:  getAcceptedBallots,
+  },
+  {
+    type: "REJECTED",
+    func:  getRejectedBallots,
+  },
+]
+```
+```js
+const uniqueListOfWeekNumbers = getUniquePropListBy(
+  // Dataset
+  afByWeekRaceStatus,
+  // Specific key to pass
+  "ballot_req_dt_week"
+)
+```
+```js
+uniqueListOfWeekNumbers
+```
+
+```js
+// 1. Create array for tallied frequency results
+const afGroupedPercResults = []
+
+/**
+ * 2. Loop through WEEK NUMBERS.
+ *    We'll start by looping through
+ *    our unique list of possible values
+ *    in the first grouping level.
+**/
+for (const weekNumber of uniqueListOfWeekNumbers) {
+
+  // 3. Loop through testor functions with your custom conditions
+  //    - Use `for...in` so we can loop as many tests as provided
+  for (const testObj in reducerFuncs) {
+
+    // 4. Loop through interested properties
+    //    - Use `for...in` so we can loop as many tests as provided
+    for (const rProperty in reducerProps) {
+
+      /**
+       * 3. Calculate the sum grand total
+       *    for the current WEEK value
+       *    for ALL current race and statuses.
+       *    We need this sum total, so we
+       *    can calculate the ratio/percentage
+       *    value for each week within
+       *    the current race.
+       *    **IMPORTANT!!!**
+       *    Make sure you ignore null values
+       *    for `ballot_rtn_status`
+      **/
+      const weekRaceAF = d3.sum (
+        // Replace me with the iterable: `afByWeekRaceStatus`
+        afByWeekRaceStatus,
+        // Replace me with your accessor function here
+        (d) => {
+          if (d.ballot_rtn_status != null && d.race == reducerProps[rProperty]) {
+            return d.af
+          }
+          else {
+            return 0
+          }
+          }
+        // WARNING: Remember to separate your iterable and accessor with a comma
+      )
+      /**
+       * 6. Tally absolute frequency based on
+       *    1. WEEK NUMBER,
+       *    2. RACE reducer prop, and
+       *    3. REDUCER FUNCTION return value.
+      **/
+      const summedUpLevel = d3.sum(
+        // Replace me with the `afByWeekRaceStatus` data
+        afByWeekRaceStatus,
+        /**
+         * Replace me with your accessor function.
+         * Remember to use your reducer function and property
+         * in a conditional statement to only count the
+         * appropriate values.
+        **/
+        (d) => {
+          if(d["race"] == reducerProps[rProperty]) {
+            const totalForCondition = reducerFuncs[testObj]["func"](d)
+            return totalForCondition
+          }
+        }
+       // WARNING: Remember to separate your iterable and accessor with a comma
+      )
+      // 7. Push result to array of results
+      /**
+       * Now, we have all the data we need,
+       * so push the appropriate results
+       * to the provided keys.
+       * Note how I'm retaining the original
+       * key values. That's a best practice,
+       * when processing and transforming the
+       * data, so you can create a linked
+       * chain back to the OG data.
+      **/
+      afGroupedPercResults.push({
+        // Add the current week
+        ballot_req_dt_week: weekNumber,
+        // Add the current reducer property here
+        race: reducerProps[rProperty],
+        // Add the current reducer function "type"
+        ballot_rtn_status: reducerFuncs[testObj]["type"],
+        // Add the AF value for the week here
+        af: summedUpLevel,
+        // Calculate the percentage with:
+        // the total for the grouped level (summedUpLevel)
+        // divided by the total for the entire week (weekRaceAF)
+        percentage: summedUpLevel/weekRaceAF,
+      })
+
+    }
+  }
+}
+```
+
+<p class="codeblock-caption">
+  Output of afGroupedPercResults.
+</p>
+
+```js
+afGroupedPercResults
+```
+
+
+
+
+
+
+
+
 
 ### 5. Filter the data for plotting
 
