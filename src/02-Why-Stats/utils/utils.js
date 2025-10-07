@@ -28,7 +28,6 @@ export const mapDateObject = (data, dateString) => {
     // 2. Create dynamic keys to use for new properties
     const objField = dateString+"_obj"
     const weekField = dateString+"_week"
-    const monthField = dateString+"_month"
 
     // 3. Skip any null request dates
     if (ballot[dateString] != null) {
@@ -39,11 +38,31 @@ export const mapDateObject = (data, dateString) => {
       **/
      ballot[objField] = parseDate(ballot[dateString])
      ballot[weekField] = Number(formatWeekNumber(ballot[objField]))
-     ballot[monthField] = formatMonth(ballot[objField])
     }
     return ballot
   })
-  return updatedData
+
+  /**
+   * 5. Sort the data by week numbers in ascending order.
+   *
+   *    I also recommend sorting your data
+   *    in ascending order before returning
+   *    it back, since you normally want your
+   *    data to mirror the concept.
+   *    In this case, weeks are temporal data
+   *    in a chronological sequence: 1, 2, 3, ...
+  **/
+  const sortedData = updatedData.sort(
+    // Works like an accessor function to pass two objects to compare
+    (a, b) => {
+      // Uses D3's ascending() function to sort by the given properties
+      return ascending(a.ballot_req_dt_week, b.ballot_req_dt_week)
+    }
+  )
+
+  // 6. Return the populated and sorted array of objects
+  return sortedData
+
 }
 
 /** getUniquePropListBy()

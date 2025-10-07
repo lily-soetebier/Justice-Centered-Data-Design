@@ -487,8 +487,13 @@ For this plot, we want to include all ballot requests and statuses -- except any
 Assign it to a constant variable named `ncMailBallots`.
 
 <!-- JS codeblock to attach nc_absentee_mail_2024_no_dropped_dupes.csv -->
+```js
+const ncMailBallots = FileAttachment("./../data/nc-voters/nc_absentee_mail_2024_no_dropped_dupes.csv").csv({typed: true})
+```
 
-
+```js
+ncMailBallots
+```
 ### 2. Map date objects to OG data
 
 Map those Date objects and other week properties with your custom `mapDateObject()` function.
@@ -496,11 +501,13 @@ Map those Date objects and other week properties with your custom `mapDateObject
 Assign it to a constant variable named `ncMailBallotsUpdated`.
 
 <!-- JS codeblock to map date objects as ncMailBallotsUpdated-->
-
+```js
+const ncMailBallotsUpdated = mapDateObject(ncMailBallots, "ballot_req_dt")
+```
 
 Output `ncMailBallotsUpdated` below:
 
-```javascript
+```js
 ncMailBallotsUpdated
 ```
 
@@ -514,11 +521,13 @@ Time to use your `threeLevelRollUpFlatMap` function!
 
 ![Output of white & black race > ballot return status grouping per week](./../assets/images/2-why-stats/04-plot-RFS-full-output.png)
 
-
+```js
+const afByWeekRaceStatus = threeLevelRollUpFlatMap(ncMailBallotsUpdated, "ballot_req_dt_week", "race", "ballot_rtn_status")
+```
 
 #### Output of afByWeekRaceStatus
 
-```javascript
+```js
 // Convert and render data
 afByWeekRaceStatus
 ```
