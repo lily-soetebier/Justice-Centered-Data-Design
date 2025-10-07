@@ -522,7 +522,7 @@ Time to use your `threeLevelRollUpFlatMap` function!
 ![Output of white & black race > ballot return status grouping per week](./../assets/images/2-why-stats/04-plot-RFS-full-output.png)
 
 ```js
-const afByWeekRaceStatus = threeLevelRollUpFlatMap(ncMailBallotsUpdated, "ballot_req_dt_week", "race", "ballot_rtn_status")
+const afByWeekRaceStatus = threeLevelRollUpFlatMap(ncMailBallotsUpdated, "ballot_req_dt_week", "race", "ballot_rtn_status", "af")
 ```
 
 #### Output of afByWeekRaceStatus
@@ -572,8 +572,6 @@ const getRejectedBallots = (d) => {
 }
 ```
 
-### 4.2 Write your reducer properties and objectify your reducer functions
-
 <!-- Reducer Properties & Objectify reducerFuncs -->
 ```js
 const reducerProps = [
@@ -592,6 +590,7 @@ const reducerFuncs = [
   },
 ]
 ```
+##### unique list nums
 ```js
 const uniqueListOfWeekNumbers = getUniquePropListBy(
   // Dataset
@@ -696,7 +695,7 @@ for (const weekNumber of uniqueListOfWeekNumbers) {
         // Calculate the percentage with:
         // the total for the grouped level (summedUpLevel)
         // divided by the total for the entire week (weekRaceAF)
-        percentage: summedUpLevel/weekRaceAF,
+        percentage: (summedUpLevel/weekRaceAF) * 100,
       })
 
     }
@@ -711,9 +710,6 @@ for (const weekNumber of uniqueListOfWeekNumbers) {
 ```js
 afGroupedPercResults
 ```
-
-
-
 
 
 
@@ -736,7 +732,25 @@ In a codeblock, use JS' `.filter()` on your grouped results to create a two cons
 #### BLACK or AFRICAN AMERICAN, rejected, weeks 0-45
 ![black race rejected ballot grouping output](./../assets/images/2-why-stats/04-plot-filtering-groups-white-rej.png)
 
+#### Filtered Data
+
+```js
+const resultsRejectedBlack = afGroupedPercResults.filter(group => group.race != "WHITE" && group.ballot_rtn_status == "REJECTED")
+```
+```js
+resultsRejectedBlack
+```
+
+```js
+const resultsRejectedWhite = afGroupedPercResults.filter(group => group.race == "WHITE" && group.ballot_rtn_status == "REJECTED")
+```
+```js
+resultsRejectedWhite
+```
+
+
 ### 6. Plot the line chart with Plot.plot()
+#### Instructions
 
 Remember, you should be plotting the weeks along the x-axis and the percentage values per group on the y-axis. You'll also need to use two `Plot.lineY()` functions inside of `marks`--one for each line. Some other required options to include:
 
@@ -765,6 +779,38 @@ Do the best you can to recreate what you see in the video example.
 <video controls style="width: 620px; height:620px">
   <source src="../assets/vids/02-why-stats/02-voter-reject-perc.mp4" type="video/mp4" />
 </video>
+
+```js
+Plot.plot({
+  // 1. Add comma-separated layout options
+  y: {
+    label: "Percentage"
+  },
+  marks: [
+    Plot.ruleY([0]),
+    Plot.line(
+      resultsRejectedBlack, 
+      {
+        x: "ballot_req_dt_week",
+        y: "percentage",
+        tip: true,
+        stroke: "black", 
+      }),
+      Plot.line(
+      resultsRejectedWhite, 
+      {
+        x: "ballot_req_dt_week",
+        y: "percentage",
+        tip: true,
+        stroke: "red", 
+      }),
+  ],
+
+})
+```
+
+
+
 
 ## E8. Reflection Questions
 
