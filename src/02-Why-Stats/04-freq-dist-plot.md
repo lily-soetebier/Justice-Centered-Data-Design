@@ -784,6 +784,7 @@ Do the best you can to recreate what you see in the video example.
       domain: [0,.55],
     },
     x:{
+      label: "Week Requested",
       domain: [0,45],
     },
     marks: [

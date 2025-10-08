@@ -28,6 +28,7 @@ export const mapDateObject = (data, dateString) => {
     // 2. Create dynamic keys to use for new properties
     const objField = dateString+"_obj"
     const weekField = dateString+"_week"
+    const monthField = dateString+"_month"
 
     // 3. Skip any null request dates
     if (ballot[dateString] != null) {
@@ -38,6 +39,7 @@ export const mapDateObject = (data, dateString) => {
       **/
      ballot[objField] = parseDate(ballot[dateString])
      ballot[weekField] = Number(formatWeekNumber(ballot[objField]))
+     ballot[monthField] = Number(formatMonth(ballot[objField]))
     }
     return ballot
   })
