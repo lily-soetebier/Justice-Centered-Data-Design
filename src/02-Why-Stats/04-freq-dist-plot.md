@@ -622,19 +622,16 @@ for (const weekNumber of uniqueListOfWeekNumbers) {
     // 4. Loop through interested properties
     //    - Use `for...in` so we can loop as many tests as provided
     for (const rProperty in reducerProps) {
+        console.log(weekNumber,
 
+          reducerFuncs[testObj],
+          reducerProps[rProperty]
+        
+         )
       /**
-       * 3. Calculate the sum grand total
-       *    for the current WEEK value
-       *    for ALL current race and statuses.
-       *    We need this sum total, so we
-       *    can calculate the ratio/percentage
-       *    value for each week within
-       *    the current race.
-       *    **IMPORTANT!!!**
-       *    Make sure you ignore null values
-       *    for `ballot_rtn_status`
+       * Getting the total of the status, by race, per week
       **/
+
       const weekRaceAF = d3.sum (
         // Replace me with the iterable: `afByWeekRaceStatus`
         afByWeekRaceStatus,
@@ -733,14 +730,14 @@ In a codeblock, use JS' `.filter()` on your grouped results to create a two cons
 ![black race rejected ballot grouping output](./../assets/images/2-why-stats/04-plot-filtering-groups-white-rej.png)
 
 #### Filtered Data
-
+##### Black && Rejected
 ```js
 const resultsRejectedBlack = afGroupedPercResults.filter(group => group.race != "WHITE" && group.ballot_rtn_status == "REJECTED")
 ```
 ```js
 resultsRejectedBlack
 ```
-
+##### White && Rejected
 ```js
 const resultsRejectedWhite = afGroupedPercResults.filter(group => group.race == "WHITE" && group.ballot_rtn_status == "REJECTED")
 ```
@@ -778,48 +775,74 @@ Do the best you can to recreate what you see in the video example.
 </video>
 
 ```js
-Plot.plot({
+  Plot.plot({
   // 1. Add comma-separated layout options
-  y: {
-    label: "Percentage",
-    domain: [0,.40]
-  },
-  x:{
-    domain: [0,45],
-  },
-  marks: [
-    Plot.ruleY([0]),
-    Plot.line(
-      resultsRejectedBlack, 
-      {
-        x: "ballot_req_dt_week",
-        y: "percentage",
-        tip: true,
-        stroke: "black", 
-      }),
+    caption: "Percentage of rejected ballots by race for a given week.",
+    inset: 10,
+    y: {
+      label: "Percentage",
+      domain: [0,.55],
+    },
+    x:{
+      domain: [0,45],
+    },
+    marks: [
+      Plot.ruleY([0]),
       Plot.line(
-      resultsRejectedWhite, 
-      {
-        x: "ballot_req_dt_week",
-        y: "percentage",
-        tip: true,
-        stroke: "red", 
-      }),
-     Plot.tip(
-      [`Last day\nto req\nOct 29th`],
-      {x: pollsWeekOfLastDay["lastWeek"], y: 0, dy: -5, dx: 277, anchor: "bottom"}
-    ),
-     Plot.dot(
-      [`Last day\nto req\nOct 29th`],
-      {x: pollsWeekOfLastDay["lastWeek"], y: 0, dy: 0, dx: 277, anchor: "bottom", stroke: "black", weight: 3, fill: "red", r: 5,}
-    ),
-  ],
-  
-})
+        resultsRejectedBlack, 
+        {
+          x: "ballot_req_dt_week",
+          y: "percentage",
+          tip: {
+            format: {
+              y: (d) => d3.format(".2%")(d),
+              x: (d) => 'Week '+ d,
+            },
+          },
+          stroke: "red",
+        }
+      ),
+      Plot.line(
+        resultsRejectedWhite, 
+        {
+          x: "ballot_req_dt_week",
+          y: "percentage",
+          tip: {
+            format: {
+              y: (d) => d3.format(".2%")(d),
+              x: (d) => 'Week '+ d,
+            },
+          } ,
+          stroke: "black",
+        }
+      ),
+      Plot.tip(
+        [`Last day\nto req\nOct 29th`],
+        {
+          x: pollsWeekOfLastDay["lastWeek"], 
+          y: 0, 
+          dy: -5, 
+          dx: 277, 
+          anchor: "bottom"
+        }
+      ),
+      Plot.dot(
+        [`Last day\nto req\nOct 29th`],
+        {
+          x: pollsWeekOfLastDay["lastWeek"],
+          y: 0, 
+          dy: 0, 
+          dx: 277, 
+          anchor: "bottom", 
+          stroke: "black", 
+          weight: 10,
+          r: 5,
+         }
+      ),
+    ],
+
+  })
 ```
-
-
-
 
 ## E8. Reflection Questions
 
