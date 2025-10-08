@@ -407,7 +407,7 @@ for (const weekNumber of uniqueListOfWeekNumbers) {
         afByWeekRaceStatus,
         // Replace me with your accessor function here
         (d) => {
-          if (d.ballot_rtn_status != null && d.race == reducerProps[rProperty]) {
+          if (d.ballot_req_dt_week == weekNumber && d.ballot_rtn_status != null && d.race == reducerProps[rProperty]) {
             return d.af
           }
           else {
@@ -432,7 +432,7 @@ for (const weekNumber of uniqueListOfWeekNumbers) {
          * appropriate values.
         **/
         (d) => {
-          if(d["race"] == reducerProps[rProperty]) {
+          if(d["race"] == reducerProps[rProperty] && d.ballot_req_dt_week == weekNumber) {
             const totalForCondition = reducerFuncs[testObj]["func"](d)
             return totalForCondition
           }
