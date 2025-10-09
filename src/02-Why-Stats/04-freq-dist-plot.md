@@ -851,7 +851,8 @@ Do the best you can to recreate what you see in the video example.
 
 After working with the NC voter dataset, describe any new insights, new questions or angles, or issues that you might consider sharing with your team at Protect Democracy.
 
-YOUR_RESPONSE_HERE
+This data shows that there is a higher rate of rejection among Black voters than for white votes. Additionally, for both groups the rejections see to spike around week 17 and 27. Investigating possible causes, and evaluating across elections to see if this is a trend could provide further insights on how best to protect people's votes.
+
 
 ### 2. Types of graphs
 
@@ -859,33 +860,33 @@ Use the structure provided below to briefly discuss each type of graph: line, ba
 
 #### Line
 
-- **Appropriate level of data**:
-- **Strengths**:
-- **Weaknesses**:
+- **Appropriate level of data**: Single (or average of) data points at a particular marker (i.e. time, stage, etc.)
+- **Strengths**: A great way to display change over time
+- **Weaknesses**: can be chaotic if there are too many different series, can't show proportions
 
 #### Bar
 
-- **Appropriate level of data**:
-- **Strengths**:
-- **Weaknesses**:
+- **Appropriate level of data**: proportion of responses in a single category
+- **Strengths**: great for direct comparision of absolute frequencies, can be grouped in multiple ways to show trends at different points in time; allows access to individual data points 
+- **Weaknesses**: limited to only one overarching category of occurence, doesn't show individual points of information
 
 #### Pie
 
-- **Appropriate level of data**:
-- **Strengths**:
-- **Weaknesses**:
+- **Appropriate level of data**: percentages of a single category
+- **Strengths**: easy way to compare frequency overall; doesn't imply time/trend
+- **Weaknesses**: only show conglomerated data, easy to miscommunicate what the "whole" is
 
 #### Histogram
 
-- **Appropriate level of data**:
-- **Strengths**:
-- **Weaknesses**:
+- **Appropriate level of data**: shows trends over time without any separation
+- **Strengths**:smooth transitions and allows for grouping of data
+- **Weaknesses**: can be mistaken for bar charts and thus separate gropuings, does not show individual data points
 
 ### 3. On making un/ethical arguments with data
 
 Describe an example of how the voter data could be manipulated to give an unethical presence to inaccurate conclusions. What specifically about the data work and any visualizing or reporting deliverables woudl make them unethical? Feel free to draw upon any of our past critical data readings, including this week's short addition about interpretive levels and the importance of context.
 
-YOUR_RESPONSE_HERE
+Working with the same data we are looking at here, it would be easy to underreport the proportion of rejected ballots for black americans simply by computing the proportions out of the total ballots without filter for race. For example, if one was to create a pie chart of each week with a wedge dedicated to accepted white, rejected white, accepted black, and rejected black then the percentage for the both black american categories would automatically be smaller than the white americans since they have a lower absolute frequency. As such, the proportion of rejected to acccepted would seem closer than it really is.
 
 ## Submission
 
