@@ -1,7 +1,7 @@
 # 2.5-Tending to The Mean, or Not?
 
 ```js
-import {getUniqueDataBy, getUniquePropListBy, mapDateObject, oneLevelRollUpFlatMap, twoLevelRollUpFlatMap, threeLevelRollUpFlatMap, sumUpWithReducerTests, downloadAsCSV} from "./utils-tc/utils.js"
+import {getUniqueDataBy, getUniquePropListBy, mapDateObject, oneLevelRollUpFlatMap, twoLevelRollUpFlatMap, threeLevelRollUpFlatMap, sumUpWithReducerTests, downloadAsCSV} from "./utils/utils.js"
 ```
 
 ## Start Your GH Workflow
@@ -170,14 +170,20 @@ const colOfInterest = "first-contentful-paint-numericValue"
 const digArchiveRolledUp = d3.rollup(
   digArchivePageTests,
   // Based on the leaf node, create object of CT info
+  //this function is looking at the leaf and perfoming other functions rather than counting like we have before
+  
+  //so in this case it will find everything with a particular hostname, and perform these evaluations based on that leaf
   leaf => {
     return {
+      //by using an accessor function you are able to look at this by not only looking at the leaf as a whole, but at each item in the leaf
+      // in this case each leaf is all of the pages for that website, l lets us look at each page individually
+      // col of interest was defined earlier, and lets us look only at the value in the FCP column
       mean: d3.mean(leaf, l => l[colOfInterest]),
       median: d3.median(leaf, l => l[colOfInterest]),
       mode: d3.mode(leaf, l => l[colOfInterest]),
       min: d3.min(leaf, l => l[colOfInterest]),
       max: d3.max(leaf, l => l[colOfInterest]),
-      length: leaf.length,
+      pages: leaf.length,
     }
   },
   // Will group at per website level
@@ -198,7 +204,7 @@ const digArchiveRolledUp = d3.rollup(
       mode: d3.mode(leaf, l => l[colOfInterest]),
       min: d3.min(leaf, l => l[colOfInterest]),
       max: d3.max(leaf, l => l[colOfInterest]),
-      length: leaf.length,
+      pages: leaf.length,
     }
   },
   d => d.hostname,
@@ -217,7 +223,10 @@ digArchiveRolledUp
 // Convert results back to a flat array of objects
 let digArchiveCentralTendencies = Array.from(
   digArchiveRolledUp,
+  //automatically wraps up by the key and then makes an array of the results
   ([domain, ctResults]) => {
+    //domain will access the leaf
+    //ctResults are the entries under the leaf (i.e. the ctObjects)
     return {
       hostname: domain,
       mean: ctResults.mean,
@@ -225,12 +234,15 @@ let digArchiveCentralTendencies = Array.from(
       mode: ctResults.mode,
       min: ctResults.min,
       max: ctResults.max,
-      length: ctResults.length,
+      pages: ctResults.pages,
     }
   }
 )
+//essentially flattens it, but can use Array.from() when there is one level
 ```
-
+```js
+digArchiveCentralTendencies
+```
 ## Exploratory Data Analysis of Central Tendency Measures
 
 Let's exlore the milliseconds results of the FCP per digital archive.
@@ -251,6 +263,7 @@ const sumBad = d3.sum(digArchiveCentralTendencies, d => {
 Remember that histograms help us see the distribution along set intervals. In this case the metric of FCP has a 3000ms threshold, where scores below 3000 are considered Good & Ok, while Bad scores include everything above 3000ms.
 
 <!--HISTOGRAM of `digArchiveCentralTendencies` MEAN SCORE FREQ DISTRIBUTION -->
+LOOKING AT THE ORIGINAL DATASET
 ```js
 Plot.plot({
   title: `Overall Frequency Distribution of Average Mean FCP (ms) Per Page`,
@@ -287,11 +300,12 @@ Plot.plot({
   marginLeft: 200,
   grid: true,
   marks: [
-    //
+    //looks at the central tendencies
     Plot.barX(
       digArchiveCentralTendencies,
       {
         y: "hostname",
+        //allows for a change of CT
         x: ctMeasure,
         sort: {y: "-x"},
         tip: true,
@@ -307,7 +321,7 @@ Plot.plot({
       }
     ),
 
-    // Plot median values
+    // Plot values
     Plot.dot(
       digArchivePageTests,
       {
