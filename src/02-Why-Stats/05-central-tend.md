@@ -1,7 +1,7 @@
 # 2.5-Tending to The Mean, or Not?
 
 ```js
-import {getUniqueDataBy, getUniquePropListBy, mapDateObject, oneLevelRollUpFlatMap, twoLevelRollUpFlatMap, threeLevelRollUpFlatMap, sumUpWithReducerTests, downloadAsCSV} from "./utils-tc/utils.js"
+import {getUniqueDataBy, getUniquePropListBy, mapDateObject, oneLevelRollUpFlatMap, twoLevelRollUpFlatMap, threeLevelRollUpFlatMap, sumUpWithReducerTests, downloadAsCSV} from "./utils/utils.js"
 ```
 
 ## Start Your GH Workflow
@@ -46,7 +46,7 @@ One of the first steps with the dataset involves understanding the ***central te
 - **Mode**: The mode is the value that occurs most frequently.
     - **Data Types**: All types.
 - **Outliers**: While not necessarily a calculation, outliers are the potential result of the central tendencies in a dataset. Once you establish what is deemed *typical* in teh dataset, you may then also be able to identify outliers that will be dubbed *atypical* in relationship to the other data.
-- **Precentiles**: A measure that isolates the value below which a given percentage of observations in a group falls. Percentiles divide the data into 100 equal parts, allowing us to see where a particular data point lies on this scale.
+- **Percentiles**: A measure that isolates the value below which a given percentage of observations in a group falls. Percentiles divide the data into 100 equal parts, allowing us to see where a particular data point lies on this scale.
 
 We can use D3's provided methods to calculate such measures quickly. In addition to the above initial 3 calculations, here are some other important methods that we will learn and use:
 
