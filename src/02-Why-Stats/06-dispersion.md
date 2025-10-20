@@ -109,8 +109,9 @@ Plot.plot({
       {
         x: "ballot_req_dt_week",
         y: "percentage",
-        // r: "af",
-        fill: "race",
+        r: "af",
+        stroke: "race",
+        // fill: "race",
         tip: true,
       }
     ),
@@ -118,6 +119,15 @@ Plot.plot({
   ]
 })
 ```
+Ideas to Pursue:
+- How do we make sure smaller dots are visible?
+  - tool tips is one way
+- Filter to 1-2 groups?
+- What are some reasons for this high frequency of rejections across all groups?
+  - Isolate which types of rejections were bigger issues than others?
+- Compare with other datasets
+  - Maybe about campaigning/when ballot requests go out
+  - Counties
 
 **Variance of rejected ballots**: <strong>${(variance(rejPercentages))}</strong>
 - ***Variance*** helps determine the data's spread size when compared to the ***mean*** value.
@@ -168,8 +178,7 @@ Plot.plot({
     ),
   ]
 })
-```
-
+```  
 ## Detecting outliers with the horizon chart
 
 A horizon chart displays data over a continuous interval, such as a timeframe like weeks or any date value. The horizon chart helps us identify trends and extreme values within large datasets, rather than precisely pinpointing specific values. Indeed, this chart gives presence to overviews that highlight patterns and outliers in the data.
