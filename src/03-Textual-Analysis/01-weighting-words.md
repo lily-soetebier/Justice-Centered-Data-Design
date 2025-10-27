@@ -150,6 +150,7 @@ let corpus = new tfidf.Corpus(
 ```
 
 <!-- Create document title array & document array for Corpus constructor -->
+
 ```js
 let customStopwords = [
   "ar", "are", "aren", "arent", "aren't", "as", "at", "also",
