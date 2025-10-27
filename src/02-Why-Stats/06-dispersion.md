@@ -154,6 +154,9 @@ Based on these numbers, and under the assumption that these numbers follow a *no
 <!-- Histogram of ALL rejected ballots -->
 ```js
 Plot.plot({
+  color: {
+    legend: true,
+  },
   width,
   height: 320,
   marks: [
@@ -163,7 +166,7 @@ Plot.plot({
         {y: "count"},
         {
           x: "percentage",
-          // fill: "race",
+          fill: "race",
           tip: true,
         },
       )
@@ -173,7 +176,7 @@ Plot.plot({
       [d3.mean(rejectedOnly, d => d.percentage)],
       {
         stroke: "black",
-        strokeWidth: 2,
+        strokeWidth: 5,        
       }
     ),
   ]
@@ -200,6 +203,7 @@ Plot.plot({
   height: 720,
   x: {axis: "top"},
   y: {domain: [0, step], axis: null},
+  // fy = force directed y; breaks up the data by a particular group on the y axis
   fy: {axis: null, domain: rejectedOnly.map((d) => d.race), padding: 0.05},
   color: {
     type: "ordinal",
