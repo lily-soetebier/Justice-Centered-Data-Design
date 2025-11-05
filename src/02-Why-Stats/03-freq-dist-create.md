@@ -2,6 +2,9 @@
 
 ```js
 import {utcParse,utcFormat} from "d3-time-format";
+import {twoLevelRollUpFlatMap} from "./utils/utils.js"
+// import {oneLevelRollUpFlatMap} from "./utils/utils.js"
+import {sumUpWithReducerTests} from "./utils/utils.js"
 ```
 
 ## Start Your GH Workflow
@@ -59,8 +62,9 @@ Again, we are going to continue working with the 2024 NC absentee voter CSV file
 2. Assign the data to a variable named `ncVotersAll`.
 3. Render it to the page in a separate codeblock.
 
-```javascript
+```js
 // FileAttachment() code here assigned to `ncVotersAll`
+let ncVotersAll = FileAttachment("./../data/nc-voters/nc_absentee_mail_2024.csv").csv({typed:true})
 ```
 
 Output the data as an interactive array of objects below:
@@ -69,7 +73,7 @@ Output the data as an interactive array of objects below:
   Interactive output of full data set in <code>ncVotersAll</code>
 </p>
 
-```javascript
+```js
 // Convert to render on page
 ncVotersAll
 ```
@@ -80,11 +84,14 @@ We will be learning how to "read" large data sets with exploratory data analysis
 
 Observable has a suite of modules called **Inputs**. We're going to learn how to use [Observable's Inputs.table()](https://observablehq.com/framework/inputs/table) method to render the attached data as a table. In its most basic form, it expects a flat array of objects with properties, which is what `FileAttachment()` renders for us.
 
-```javascript
+```js
 // Most basic Inputs.table()
 Inputs.table(ncVotersAll)
 ```
-
+```js
+// Most basic Inputs.table()
+Inputs.table(ncVotersAll)
+```
 Notice how the table "lazily" loads data as you scroll down the data, so your browser doesn't explode!
 
 ## E2. Add custom features for `Inputs.table()`
@@ -94,7 +101,7 @@ Ok, that's easy, but that's way too much data for a table!
 Let's create a new table below that reduces what we want to see by implementing the following options within a second parameter, which is an object `{...}` with the following properties:
 
 - `columns`: Reduce the 17 columns to the following seven columns. Remember that you can access them via `data.columns`.
-    ```javascript
+    ```js
     columns: [
       "id_num", "county_desc", "race", "gender", "age",
       "ballot_request_party", "ballot_rtn_status"
@@ -126,19 +133,45 @@ Let's create a new table below that reduces what we want to see by implementing 
       ballot_request_party: "Ballot Party",
       ballot_rtn_status: "Ballot Status",
     }
+    
     ```
 
 Ok, now I want you to put all of those pieces together in your own `Inputs.table()` with the NC absentee voter data. Here's what it should look like:
 
 ![Example output table](./../assets/images/2-why-stats/02-why-stats-ex-table.png)
 
-```javascript
+```js
 // Insert your table here
 Inputs.table(
   // The array of objects
   ncVotersAll,
   {
-    // enter each customizing property in this object
+   columns: [
+      "id_num", "county_desc", "race", "gender", "age",
+      "ballot_request_party", "ballot_rtn_status"
+    ],
+    // columns: is expecting an array of strings that correspond to the keys (columns) in the array of object
+
+  rows: 25,
+
+  width: {
+      id_num: 90,
+      // I made  the id num column wider because for some reason my numbers were too long for what was set
+      county_desc: 90,
+      gender: 40,
+      age: 20,
+      race: 90,
+      ballot_request_party: 90,
+    },
+    header: {
+      id_num: "ID",
+      county_desc: "County",
+      race: "Race",
+      gender: "Gender",
+      age: "Age",
+      ballot_request_party: "Ballot Party",
+      ballot_rtn_status: "Ballot Status",
+    }, 
   }
 )
 ```
@@ -153,7 +186,7 @@ Also, as we move through this section of the book, we need to cultivate a critic
 
 ### About the NC absentee voter ballot data, and its provenance
 
-Before we move forward, it's a good idea to understand the data with any available external resources to uderstand its provenance. ***Provenance*** is essentially understanding the original context of people, places, intentions, and definitions of the dataset.
+Before we move forward, it's a good idea to understand the data with any available external resources to understand its provenance. ***Provenance*** is essentially understanding the original context of people, places, intentions, and definitions of the dataset.
 
 Perhaps many of us, myself included, were not immediately knowledgable about this subject or process of voting via mail. Here are a couple of primer points that I have learned through some initial reading of the archived 2024 version of NC's website about mail-in/absentee voting ([see ncsbe.gov on archive.org](https://web.archive.org/web/20240108154755/https://www.ncsbe.gov/voting/vote-mail)):
 
@@ -167,15 +200,40 @@ Finally, inside of the `/src/data/nc-voters/provenance/` folder, you can also re
 
 **Question**: After reviewing the above information, how would a SJ ethic inform your intiial understanding of the data, its collected values, and its context? List out in other information or questions that you sense might be missing about the data.
 
-ENTER_YOUR_RESPONSE_HERE
+#### Questions I hope to get answered
+* How were these categories defined?
+* How were people able to enter their responses (i.e.  short answer, multiple choice w/ multi select or single choice) 
+* the way that data is formatted and collected makes it hard to see the intersections of these identities
+#### Observations
+* Sex and gender conflated and limited
+* Method of request/return could be interesting to look at
+#### New Questions
+* If someone requested the ballot on behalf of someone else, is that record kept?
+* How common is paper vs online form?
+  * Are there differences?
+* 
+
 
 **Question**: Based on the case scenario as a communicator at Protect Democracy, and a SJ ethic in mind, what questions, i.e., angles, do you think may be helpful to meet the needs of your situation. Discuss any columns/fields that you are surprised about or spark any curiosities, and create a list of questions they spark in you.
 
-ENTER_YOUR_RESPONSE_HERE
+I think the clearest comparision that needs to be made in this scenario is the return status, race, and reason for acceptance/rejection (which is part of return status).
 
+I think another angle could be looking at the form through which the ballot was requested/submitted could shed light on the situation as well.
+
+* What does spoiled-EV mean?
+  
 **Question**: What can you understand about the `ballot_rtn_status` column? In other words, what types of values are possible?
 
-ENTER_YOUR_RESPONSE_HERE
+* accepted
+* returned undeliverable
+* spoiled-ev (not sure what this means)
+* Accepted - Cured
+* spoiled
+* retuerned after deadline
+* pending cure
+* id not provided
+
+Essentially, it seems it is accepted or the reason for rejection.
 
 ## 2.3.4 Calculate Absolute Grouped Frequencies with RFS Method
 
@@ -187,21 +245,26 @@ Firstly, we will learn how the RFS method uses D3's `.rollups()`, which is just 
 
 <!-- Example generic output from rollups() -->
 ```javascript
-// Example 1-Level InternMap transformed as Array of nested Arrays
+// Example 1-Level InternMap transformed as Array of nested Arrays 
+// represents one single grouping (i.e. by race)
 [
   ["key1L1", Number],
   ["key2L1", Number],
   ["key3L1", Number],
   //more entries...
 ]
+//key = the group, number = absolute frequency at that level
+
 
 // Example 2-Level InternMap transformed as Array of nested Arrays
+//represents nested grouping (i.e. by race and gender)
 [
   [
     "key1L1", [
       ["key1L2", Number],
       ["key1L2", Number],
       //more L2 entries for key1L1 ...
+      // key1L1= gender; key1L2= race
     ]
   ],
   [
@@ -209,10 +272,12 @@ Firstly, we will learn how the RFS method uses D3's `.rollups()`, which is just 
       ["key2L2", Number],
       ["key2L2", Number],
       //more L2 entries for key2L1 ...
+      // key2L1= gender; key2L2= race
     ]
   ],
   //more L1 entries...
 ]
+//Can be looped through like a usual array, but the more groupings, the more loops it will take to get to the inner most data
 
 // And so on, based on the number of levels rolled up
 ```
@@ -254,7 +319,7 @@ Ok, so we want to create a desired ***grouping*** of `ballot_rtn_status` > `race
     2. Add second param: the computation to perform on the rolled up data. In this case, we want the absolute frequency of ballot statuses per race.
 
 <!-- Example rollups() -->
-```javascript
+```js
 /**
  * .rollups()
  * @return: a flattened version of InternMap:
@@ -262,7 +327,7 @@ Ok, so we want to create a desired ***grouping*** of `ballot_rtn_status` > `race
 **/
 const afStatusByRace = d3.rollups(
   ncVotersAll,
-  v => v.length, // length of leaf node: ballot_rtn_status
+  v => v.length, // length of leaf node: ballot_rtn_status -> what we use when we are counting the absolute frequency in categories
   d => d.race,
     d => d.ballot_rtn_status
 )
@@ -273,7 +338,7 @@ const afStatusByRace = d3.rollups(
 </p>
 
 <!-- afStatusByRace output -->
-```javascript
+```js
 // Convert to render on page
 afStatusByRace
 ```
@@ -284,9 +349,10 @@ Rollups is great at quickly grouping flat data, such as an array of objects, by 
 
 To remedy the above issue, we can *flatten our nested hierarchies of arrays* assigned to `afStatusByRace`. By flattening the rolledup groups, again, we can reassign the object key-value pairs, which will help us later when we need to reduce the data to either ACCEPTED or REJECTED statuses. Indeed, we will consistently be reminded how when we work with data in JS, Observable, and D3 that we need our data to be a "flat" array with objects:
 
+*Our goal is to get back to an array of objects*
 ```javascript
 
-[{...},{...},{...}, ...]
+[{...},{...},{...},]
 
 ```
 
@@ -358,25 +424,29 @@ In this second video, I explain the code inside of the custom `oneLevelRollUpFla
 
 Ok, now that you have watched the above video about the `oneLevelRollUpFlatMap()` function. Import it from the `./utils/utils.js` file in the codeblock below.
 
-```javascript
+```js
 // Convert me and import oneLevelRollUpFlatMap()
-import {PUT_ANY_FUNCTIONS_IN_HERE, SEPARATE_MORE_THAN_ONE, WITH_COMMAS} from "enter/path/here.js"
+import {oneLevelRollUpFlatMap} from "./utils/utils.js"
 
 ```
 
 Now, see if it worked!
 
-Use the imported function in the below codeblock to rollup and flatten `ncVotersAll` by (1) `race` and (2) `ballot_rtn_status`.
+Use the imported function in the below codeblock to rollup and flatten `ncVotersAll` by (1) `race` [ignore and (2) `ballot_rtn_status`.]
 
-```javascript
+```js
 // Convert and use `oneLevelRollUpFlatMap()` on `ncVotersAll`
-const byRaceAndBallotStatus = ADD_FUNCTION_HERE
+const byRace = oneLevelRollUpFlatMap(
+  ncVotersAll,
+  "race",
+  "count",
+)
 ```
 
 Ok, let's see if `byRaceAndBallotStatus` shows up here by rendering it to the page.
 
-```javascript
-byRaceAndBallotStatus
+```js
+byRace
 ```
 
 <div class="error-caption">
@@ -392,12 +462,18 @@ byRaceAndBallotStatus
 
 Ok, now you try this custom function with a different variable from the dataset.
 
-```javascript
+```js
 // Convert and create your own one-level grouping
+let byAge = oneLevelRollUpFlatMap(
+   ncVotersAll,
+   "age",
+   "count",
+)
 ```
 
-```javascript
+```js
 // Convert and output your variable here
+byAge
 ```
 
 ## E6. Import and use `twoLevelRollUpFlatMap()` on `ncVotersAll`
@@ -415,13 +491,22 @@ In this video, follow along as I explain the code for the `twoLevelRollUpFlatMap
 </video>
 
 After you have watched the above video, it is time for you to try this custom function with the two example variables used in the our running angle.
+```js
 
-```javascript
+```
+```js
 // Convert and create your own two-level grouping
+let byRaceAndStatus = twoLevelRollUpFlatMap (
+  ncVotersAll,
+  "race",
+  "ballot_rtn_status",
+  "count",
+)
 ```
 
-```javascript
+```js
 // Convert and output your variable here
+byRaceAndStatus
 ```
 
 ## 2.3.7 RFS 3. Sum it up with D3's .sum()!
@@ -502,17 +587,47 @@ Follow along with me in the video below to learn how to create a custom function
 </video>
 
 <!-- Your Reducer Functions -->
-```javascript
+```js
 // Convert and create your own reducer functions akin to "ACCEPTED" vs "REJECTED"
+const getAcceptedBallots = (d) => {
+  if (d.ballot_rtn_status != null && d.ballot_rtn_status.startsWith("ACCEPTED") == true) {
+    return d.count
+  }
+
+  else {
+    return 0
+  }
+}
+
+const getRejectedBallots = (d) => {
+  if (d.ballot_rtn_status != null && d.ballot_rtn_status.startsWith("ACCEPTED") == false) {
+    return d.count
+  }
+  else {
+    return 0
+  }
+}
 ```
 
+
 <!-- Call and use sumUpWithReducerTests() -->
-```javascript
+```js
 /**
  * Convert and use sumUpWithReducerTests().
  * Be sure to review the utils.js file, so you
  * can see the parameters needed for the function.
 **/
+const ballotResults = sumUpWithReducerTests(
+  [{type: "Accepted Ballot", func: getAcceptedBallots, }, {type: "Rejected Ballot", func: getRejectedBallots, },],
+   ["ASIAN","WHITE"],
+   byRaceAndStatus,
+   "race",
+  "ballot_rtn_status",
+  "count",
+)
+```
+```js
+ballotResults
 ```
 
 <p class="codeblock-caption">
@@ -533,15 +648,35 @@ Ok, tabulate the rolledup and summed-up results with `Inputs.table()`. Be sure t
 3. Sort the table based on what you deem the most helpful combo of column and ascending vs. descending.
 4. Be sure to provide a short response to the question about your table design.
 
-```javascript
+```js
 // Enter your table here
+Inputs.table(
+  ballotResults,
+  {
+    header: {
+      race: "Voter's Race", 
+      ballot_rtn_status: "Ballot Status",
+      count: "Ballot Total",
+    },
+     width: {
+      race: 90,
+      ballot_rtn_status: 90,
+      count: 40,
+    },
+  }
+)
 ```
 
 ### Question: Explain your table design choices.
 
 **Q**: What *insights* and *new questions* did you garner from it that you hope to also illustrate/provide for your audience?
 
-ENTER_YOUR_RESPONSE_HERE
+I renamed ballot_rtn_status to Ballot Status to make the data more accessible to a non-expert audience.  I removed the concept of "return" from the data as at this point the election has completed and all that is needed for our audience to know is whether or not the ballot was accepted or rejected in the end (meaning its current status). I also wrote everything out in full words.
+
+Another choice I made was to change count to total, meaning the total number of ballots for that category as this felt more intuitve than absolute frequency/count.
+
+I also adjusted the width to evenly space the columns. I did not adjust the alignment as I felt it negatively impacted overall readability.
+
 
 ## Conclusion
 

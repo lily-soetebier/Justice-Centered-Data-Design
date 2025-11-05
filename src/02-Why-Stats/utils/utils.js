@@ -99,7 +99,7 @@ export const oneLevelRollUpFlatMap = (data, level1Key, countKey) => {
     (d) => d[level1Key] // d["race"]
   )
 
-  // 2. Flatten back to array of objects
+  // 2. Flatten back to array of objects -> since there is only one level we only have to do it once
   const flatTotals = colTotals.flatMap((e) => {
     return {
       [level1Key]: e[0],
@@ -111,8 +111,8 @@ export const oneLevelRollUpFlatMap = (data, level1Key, countKey) => {
   return flatTotals
 }
 
-/** twoLevelRollUpSumUp()
- * Groups & counts data by one level
+/** twoLevelRollUpFlatMap()
+ * Groups & counts data by two levels
  * @params
  *    - data: Array of objects. Data to rollup and sum up.
  *    - level1Key: String. Name of key for 1st level.
@@ -123,41 +123,46 @@ export const oneLevelRollUpFlatMap = (data, level1Key, countKey) => {
 **/
 export const twoLevelRollUpFlatMap = (data, level1Key, level2Key, countKey) => {
 
-  // 1. Rollups on 2 nested levels
+  // 1. Rollups on 2 nested levels -> same set up as the standard roll-up function
+  // think of this as putting all of the data into a "bucket" for every instance of different values and then counts the total number of entries in that particular section.
+
   const colTotals = rollups(
     data,
     (v) => v.length, //Count length of leaf node
     (d) => d[level1Key], //Accessor at 1st level
       (d) => d[level2Key], //Accessor at 2nd level
   )
-
+  //however, not the kind of data structure we need atm
   // 2. Flatten 1st grouped level back to array of objects
   const flatTotals = colTotals.flatMap((l1Elem) => {
-
+  /* Using an accessor function
+    l1Elem = the first element of the array (i.e. the value from the l1 key)
+  */
     // 2.1 Assign level 1 key
     let l1KeyValue = l1Elem[0]
-
+    
     // 2.2 Flatten 2nd grouped level
-    const flatLevels = l1Elem[1].flatMap((l2Elem) => {
-
+  const flatLevels = l1Elem[1].flatMap((l2Elem) => {
+//looking at the entires from the 1 position of the initial map. this is looking at the second level of the rollup. so what is happening is that the loop is unzipping the arrays and matching the l1 key to the l2 key to the final value at a particular spot.
       // 2.2.1 Assign level 2 key
       let l2KeyValue = l2Elem[0]
-
       // l2Elem[1].flatMap()
-
       // 2.2.2 Return fully populated object
+      // setting up the object to have the values entered and adding the info
       return {
         [level1Key]: l1KeyValue,
         [level2Key]: l2KeyValue,
         [countKey]: l2Elem[1]
       }
     })
-
-    // 3. Return flattened array of objects
+   
+    // 3. Return flattened array of objects 
+    // adding each object to an array
     return flatLevels
   })
 
   // 3. Return the sorted totals
+  //combining the arrays into one larger array of objects
   return flatTotals
 }
 
@@ -168,7 +173,7 @@ export const twoLevelRollUpFlatMap = (data, level1Key, level2Key, countKey) => {
  * @params
  *  1. reducerFunctions: Array of Objects. Pass any number of functions to filter your data
  *    - type: String. Name of the filtered result
- *    - func: Function. Function that filters the data
+ *    - func: Function. Function that filters the data (think reducer functions that we wrote for accepted or not)
  *  2. reducerProperties: Array of Strings. Each String is the desired property values that you are testing in the data
  *  3. data: Two-Level .rollups() output--an Array of nested arrays.
  *  4. level1Key: String. The key for the 1st-level grouping of the data.
@@ -219,7 +224,7 @@ export const sumUpWithReducerTests = (reducerFunctions, reducerProperties, data,
 
   }
 
-  // 6. Return array of freq objects
+  // 6. Return array of freq objects 
   return freqResults
 }
 
