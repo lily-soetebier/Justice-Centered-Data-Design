@@ -99,7 +99,7 @@ const initialViewState = {
   minZoom: 2,
   maxZoom: 12,
   pitch: 0,
-  bearing: 0
+  bearing: 0,
 }
 
 // 3. Get canvas element via HTML ID attribute;
@@ -151,7 +151,7 @@ deckInstance.setProps({
     new TextLayer({
       id: "us-text-layer",
       data: stateCentroid,
-      getPosition: d => [d.longitude, d.latitude],
+      getPosition: d => [d.latitude, d.longitude,],
       getText: d => d.name,
       fontFamily: 'Helvetica',
       fontWeight: 200,
@@ -167,18 +167,18 @@ deckInstance.setProps({
       getPixelOffset: [0, -10]
     }),
     // 3. Add Icons
-    // new IconLayer({
-    //   id: 'IconLayer',
-    //   data: lindgren,
-    //   // data: 'https://raw.githubusercontent.com/visgl/deck.gl-data/master/website/bart-stations.json',
-    //   getColor: d => [Math.sqrt(d.exits), 140, 0],
-    //   getIcon: d => 'marker',
-    //   getPosition: d => d.coordinates,
-    //   getSize: 40,
-    //   iconAtlas: 'https://raw.githubusercontent.com/visgl/deck.gl-data/master/website/icon-atlas.png',
-    //   iconMapping: 'https://raw.githubusercontent.com/visgl/deck.gl-data/master/website/icon-atlas.json',
-    //   pickable: true
-    // })
+    new IconLayer({
+      id: 'IconLayer',
+      // data: lindgren,
+      data: 'https://raw.githubusercontent.com/visgl/deck.gl-data/master/website/bart-stations.json',
+      getColor: d => [Math.sqrt(d.exits), 140, 0],
+      getIcon: d => 'marker',
+      getPosition: d => d.coordinates,
+      getSize: 40,
+      iconAtlas: 'https://raw.githubusercontent.com/visgl/deck.gl-data/master/website/icon-atlas.png',
+      iconMapping: 'https://raw.githubusercontent.com/visgl/deck.gl-data/master/website/icon-atlas.json',
+      pickable: true,
+    })
   ]
 });
 ```

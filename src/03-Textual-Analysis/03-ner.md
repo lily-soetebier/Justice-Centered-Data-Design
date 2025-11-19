@@ -56,7 +56,7 @@ Define and implement the following 3 textual analysis measurements in JavaScript
 - Named Entity Recognition (NER)
 - Conduct NER with `compromise.js`
 
-## 0. Attach & Learn About the Data
+## 0. Attach & Learn About the Datayarn
 
 Before we begin, let's make sure we have some baseline context for our textual data.
 
