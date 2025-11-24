@@ -179,17 +179,19 @@ There are other conventions and rules, but we don't need to belabor them right n
 
 1. Convert the `javascript` block below to an exectuable `js` block
 2. Declare and name a series of variables that pertain to your favorite foods by completing the prompts in the block.
-3. Use the correct set of variable types — `var`, `let`, and/or `const` — to ensure that whatever variable name replaces `_faveFood1_` changes within the scope of the `if () {...}` conditional.
+3. Use the correct set of variable types — `var`, `let`, and/or `const` — to ensure that whatever variable name replaces `favFood1` changes within the scope of the `if () {...}` conditional.
 4. Note how the code already prints out to the console with `console.log()`, so check your work as you go by opening the browser console with the **Inspect Element** tool.
     <video controls style="width: 620px; height:620px">
       <source src="../assets/vids/01-js/01-web-console.mp4" type="video/mp4" />
     </video>
 
-```javascript
-// Convert this into a multiline comment
-// that includes your name, date,
-// and top 3 favorite foods, where
-// each set of info should be on a new line.
+```js
+/* Lily Soetebier
+* August 27th 2025
+* Top 3 favorite foods:
+*   1. Pierogis
+*   2. Spicy Pork Belly
+*   3. Pickled Vegetables */
 
 /**
  * 1. Replace the value in-between the
@@ -198,36 +200,36 @@ There are other conventions and rules, but we don't need to belabor them right n
  *      Example:
  *      "Enter_#1_Favorite_Food_Here" --> "Pizza"
  *
- * 2. Rename the variable names, (e.g., _faveFood1_),
+ * 2. Rename the variable names, (e.g., favFood1),
  *    appropriately with camelCase scheme.
  *
  * 3. Replace all "___" with the declaration type
  *    that will make sure each favorite food is
  *    logged to the correct place in the console.
 **/
-___ _faveFood1_ = "Enter_#1_Favorite_Food_Here"
-___ _faveFood2_ = "Enter_#2_Favorite_Food_Here"
+var favFood1 = "Pierogis"
+var favFood2 = "Spicy Pork Belly"
 
 console.log(
   "Ok, so y'all know that my #1 favorite food is ",
-  _faveFood1_,
-  ", and my second favorite food is ", _faveFood2_
+  favFood1,
+  ", and my second favorite food is ", favFood2
 )
 
-if (_faveFood2_.length > 0) {
-  // Redeclare _faveFood1_ within this scope only
-  ___ _faveFood1_ = "Enter__NEW__#1_Favorite_Food_Here"
+if (favFood2.length > 0) {
+  // Redeclare favFood1 within this scope only
+  let favFood1 = "Picked Vegetables"
 
   console.log(
     "jk! ",
-    _faveFood1_,
+    favFood1,
     " is actually my #1 favorite food."
   )
 }
 
 console.log(
   "Ok. Don't get mad, but my #1 favorite is ",
-  _faveFood1_, " actually."
+  favFood1, " actually."
 )
 ```
 
