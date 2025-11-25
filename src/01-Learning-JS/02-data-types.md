@@ -62,8 +62,76 @@ Primitives enable you to perform fundamental data operations.
 3. Print them all to the console with `console.log()`.
 4. Check your work, as you go, by opening the browser console with the **Inspect Element** tool.
 
-```javascript
-// Write your code in here
+```js
+//Declaring all the Variables
+   var orderName = "Lily"
+   var cashierName  = "Hannah"
+   var orderDrink = {
+      hotWeather: "Citrus Espresso Tonic",
+      coolWeather: "Hot Oat Milk Latte with Cinnamon",
+   }
+
+   var numOfDrink = 1
+
+   var affordableCoffee = {
+      lessThan5: true,
+      moreThan5: false,
+   }
+   var price
+   var weatherTemp = 78
+
+   //start of "dialogue"
+   console.log(
+    "Day 1",
+   )
+
+   if(weatherTemp > 68) {
+      console.log(
+         orderName,
+         ": Hello, I would like to order a ",
+         orderDrink.hotWeather,
+      )
+      price = 7
+      console.log(
+         cashierName,
+         ": Okay, your total will be ",
+         price,
+      )
+   }
+
+   if (price > 5){
+    console.log(
+      "Coffee is affordable:",
+      affordableCoffee.moreThan5,
+    )
+   }
+
+   console.log(
+    "Day 2",
+   )
+   weatherTemp = 65
+
+    if (weatherTemp <= 68) {
+      console.log(
+         orderName,
+         ": Hello, I would like to order a ",
+         orderDrink.coolWeather,
+      )
+      price = 4.5
+      console.log(
+        cashierName,
+        ": Okay, your total will be ",
+        price
+      )
+   }
+   if (price < 5) {
+    console.log(
+      "Coffee is affordable: ",
+      affordableCoffee.lessThan5,
+    )
+   }
+  
+
 ```
 
 ## Submission
