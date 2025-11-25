@@ -129,7 +129,8 @@ vonnegut
 
 Let's start simple. Output the length of the String, `vonnegut`, in a `js` codeblock below.
 
-```javascript
+```js
+vonnegut.length
 // Convert me to a js block
 ```
 
@@ -139,7 +140,7 @@ If you review the String, you will notice how there are section breaks represent
 
 1. In the first codeblock, remove ***all*** of these section breaks in `vonnegut` and replace them with an empty string (`""`). Assign it to a new variable: `vonnegutNoSB`.
 2. In the second codeblock, output the new variable, `vonnegutNoSB`, to verify if it worked.
-3. If it worked, use a third codeblock to remove ***all*** major types of puncutation with a chained set of replaceAll() methods on the new `vonnegutNoSB` variable. Assign it to a new variable: `vonnegutClean`. Specifically, create a chain of `removeAll()` methods for each of the following characters: double-quotes (`"`), single-quotes (`'`), commas (`,`), periods (`.`), question marks (`?`), semi-colons (`;`), and the following pattern of two dashes (`--`). Replace the `--` with a single space (`" "`), but replace every other puncuation with an empty String (`""`).
+3. If it worked, use a third codeblock to remove ***all*** major types of puncutation with a chained set of replaceAll() methods on the new `vonnegutNoSB` variable. Assign it to a new variable: `vonnegutClean`. Specifically, create a chain of `replaceAll()` methods for each of the following characters: double-quotes (`"`), single-quotes (`'`), commas (`,`), periods (`.`), question marks (`?`), semi-colons (`;`), and the following pattern of two dashes (`--`). Replace the `--` with a single space (`" "`), but replace every other puncuation with an empty String (`""`).
     <div class="tip">
       <p>
         <strong>Escaping quotes</strong>: Strings are assigned with quotation marks. This means the single and double quotes are handled in special ways. For you to tell the <code>replaceAll()</code> method to match either type of quote characters, you need to escape them with a backslash (<code>\</code>). So, in your code, you will need to use an escaped character for double-quotes and single-quotes: <code>"\""</code> and <code>"\'"</code>.
@@ -147,21 +148,20 @@ If you review the String, you will notice how there are section breaks represent
     </div>
 4. In the fourth codeblock, output the new variable, `vonnegutNoSBDQ`, to verify if it worked.
 
-```javascript
-// Convert me to a js block and complete #1
+```js
+let vonnegutNoSB = vonnegut.replaceAll("*","")
 ```
 
-```javascript
-// Convert me to a js block and complete #2
+```js
+vonnegutNoSB
 ```
 
-```javascript
-// Convert me to a js block and complete #3
+```js
+let vonnegutClean = vonnegutNoSB.replaceAll(`"`,"").replaceAll(`'`,"").replaceAll(",","").replaceAll(".","").replaceAll("?","").replaceAll(";","").replaceAll("--", " ")
 ```
 
-```javascript
-// Convert me to output the grand finale!
-vonnegutNoSBDQ
+```js
+vonnegutClean
 ```
 
 ### E3. Same thing, but better method with a for loop
@@ -172,12 +172,40 @@ Ok, those chains were ridiculous, right? Below, complete the same outcome, but u
   Put those desired marks to replace in an Array. You will also need to write a conditional statement to handle the <code>--</code> differently.
 </p>
 
-```javascript
+```js
 // Convert me and use a for loop to remove all desired punctuation
+let vonnegutNoPuncs = ""
+
+for(const char of vonnegutNoSB){
+  if (char == `"`){
+    vonnegutNoPuncs += ""
+  }
+  else if (char == `'`){
+    vonnegutNoPuncs += ""
+  }
+  else if (char == ","){
+    vonnegutNoPuncs += ""
+  }
+  else if (char == "."){
+    vonnegutNoPuncs += ""
+  }
+  else if (char == "?"){
+    vonnegutNoPuncs += ""
+  }
+  else if (char == ";"){
+    vonnegutNoPuncs += ""
+  }
+  else if (char == "--"){
+    vonnegutNoPuncs += " "
+  }
+  else {
+    vonnegutNoPuncs += char
+  }
+}
 ```
 
-```javascript
-// Convert me and output the new string, vonnegutNoPuncs, here
+```js
+vonnegutNoPuncs
 ```
 
 ### E4. Split the String into an Array of Strings
@@ -186,12 +214,12 @@ Sometimes, we need to isolate parts of a text for analysis by splitting it into 
 
 Create an array of strings of Vonnegut's story as a new variable called `vonnSplit`. Do so by splitting the newly cleaned String, `vonnegutNoPuncs`, with an empty single space (`" "`).
 
-```javascript
-// Convert me to a js block and complete the exercise
+```js
+let vonnSplit = vonnegutNoPuncs.split(" ")
 ```
 
-```javascript
-// Convert me to a js block and output `vonnSplit`
+```js
+vonnSplit
 ```
 
 ### E5. Create array of all hyphenated words
@@ -203,9 +231,25 @@ Ok, last exercise! Complete the following steps to create a new array that only 
 1. In a first codeblock, declare a new array called `hyphenatedWords`. Then, push only hyphenated words into it.
 2. In a second codeblock, output the new array to verify your work.
 
+```js
+let hyphenatedWords = []
+  
+  hyphenatedWords.push("clean-cut")
+  hyphenatedWords.push("far-fetched")
+  hyphenatedWords.push("free-for-all")
+  hyphenatedWords.push("sister-in-law")
+```
+```js
+hyphenatedWords
+```
+
+
+
 **Question**: What oddities do you notice about the outcome? Below, explain what you suggest is happenning, and what you would do to resolve the issue with isolating a better list of hyphenated words.
 
-ENTER_YOUR_RESPONSE_HERE
+I was unable to chain the .push() method. To fix this I simply added a new line and repeated the hyphantedWords.push() function again. 
+
+I feel like I completed this exercise wrong though. I am quite confused.
 
 ## Submission
 
