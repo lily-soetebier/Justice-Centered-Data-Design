@@ -64,7 +64,7 @@ In this project, check out the `/src/data/events.json` file, which is a small ex
   What other properties of JSON do you notice?
 </p>
 
-**RESPONSE**: Write your response here.
+**RESPONSE**: it looks like a collection of objects.
 
 ## 1.8.2 Framework's FileAttachment()
 
@@ -216,11 +216,17 @@ If you wish to read about them, see Observable Framework's "[Data loaders](https
 
 ### E1. Understanding CSV file formats
 
-Goal: Demonstrate your understanding of the CSV file format by creating a mini CSV file with **3 columns and 5 rows with the topic of your choice**.
+Goal: Demonstrate your understanding of the CSV file format b creating a mini CSV file with **3 columns and 5 rows with the topic of your choice**.
 
 Use the empty codeblock below.
 
 ```
+name, age, job;
+lily, 23, science writer;
+josephine, 24, science writer;
+elijah, 25, technical writer;
+hazel, 23, counselor;
+maddie, 24, executive assistant;
 ```
 
 ### E2. Load a CSV file
@@ -234,12 +240,17 @@ In this case, load the following CSV file: `nc_absentee_mail_2024.csv`.
 2. In the second codeblock, use `console.log()` to log the following properties to the console: `.name` and `.size`.
 3. Still in the second codeblock, add a second `console.log()` and log the first object in the Array to the console.
 
-```javascript
-// Your FileAttachment() code goes here
+```js
+const data = FileAttachment("./../data/nc-voters/nc_absentee_mail_2024.csv").csv({typed:true});
 ```
 
-```javascript
-// Your other code with your variable goes here
+```js
+console.log(
+   data.name,
+   data.size,
+   data[0]
+)
+// data.csv({typed: true})
 ```
 
 Make sure that you verify the logs are there!
