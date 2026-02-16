@@ -54,14 +54,14 @@ Let's practice making datetime objects with Temporal. Open your browser's consol
  *
  */
 
-const dateNow = Temporal.Now.plainDateISO() // Gets the current date
+// const dateNow = Temporal.Now.plainDateISO() // Gets the current date
 
 // If you additionally want the date AND time:
-const dateSuperNow = Temporal.Now.plainDateTimeISO()
+// const dateSuperNow = Temporal.Now.plainDateTimeISO()
 ```
 
 ```js
-const dateSuperNow = Temporal.Now.plainDateTimeISO()
+// const dateSuperNow = Temporal.Now.plainDateTimeISO()
 ```
 
 Make sure to review just how much information -- ***data*** -- is stored, as well as how many methods are available with every single Temporal object.
@@ -71,15 +71,15 @@ Make sure to review just how much information -- ***data*** -- is stored, as wel
 </p>
 
 ```js
-dateSuperNow
+// dateSuperNow
 ```
 
 <p class="codeblock-caption">
-  Output of <code>dateSuperNow.dayOfYear</code> will change.
+  <!-- Output of <code>dateSuperNow.dayOfYear</code> will change. -->
 </p>
 
 ```js
-dateSuperNow.dayOfYear
+// dateSuperNow.dayOfYear
 ```
 
 ### `.toString()` Convert Temporal object to a String
@@ -88,7 +88,7 @@ If you additionally want the time, then you can chain methods by first using `.p
 
 ```javascript
 // date and time in ISO 8601 format
-const stringISODateTime = Temporal.Now.plainDateTimeISO().toString()
+// const stringISODateTime = Temporal.Now.plainDateTimeISO().toString()
 ```
 
 <p class="codeblock-caption">
@@ -96,7 +96,7 @@ const stringISODateTime = Temporal.Now.plainDateTimeISO().toString()
 </p>
 
 ```js
-const stringISODateTime = Temporal.Now.plainDateTimeISO().toString()
+// const stringISODateTime = Temporal.Now.plainDateTimeISO().toString()
 ```
 
 ```js
@@ -105,7 +105,7 @@ stringISODateTime
 
 When I wrote this chapter, I assigned the following date and time data as a string to `stringDateTime`: `"2025-07-17T09:51:42.651"`. Here it is broken down by the chained methods to `Temporal.Now`:
 
-1. `.plainDateTimeISO()` == `Temporal.PlainDateTime 2025-07-17T09:51:42.651`
+<!-- 1. `.plainDateTimeISO()` == `Temporal.PlainDateTime 2025-07-17T09:51:42.651` -->
 2. `.toString()` == `"2025-07-17T09:51:42.651"`
 
 ### Access particular parts of Temporal object
@@ -131,24 +131,24 @@ Try out the following quick methods to retrieve particular parts of the Temporal
 
 | Method | Conversion | Output  |
 |--------|------------|---------|
-| `stringDateTime.toPlainDate()`  | Temporal.PlainDate object. YYYY-MM-DD. | `2025-07-17`|
-| `stringDateTime.toPlainTime()`  | Temporal.PlainTime object. HH:MM:SS.mmm. | `09:51:42.651`|
-| `stringDateTime.toLocaleString()`  | String. Converts to locally situated method of formatting dates. In the U.S., it is: m/d/YYYY, h:m:s AM/PM. | `"7/17/2025, 9:51:42 AM"`|
+<!-- | `stringDateTime.toPlainDate()`  | Temporal.PlainDate object. YYYY-MM-DD. | `2025-07-17`| -->
+<!-- | `stringDateTime.toPlainTime()`  | Temporal.PlainTime object. HH:MM:SS.mmm. | `09:51:42.651`| -->
+<!-- | `stringDateTime.toLocaleString()`  | String. Converts to locally situated method of formatting dates. In the U.S., it is: m/d/YYYY, h:m:s AM/PM. | `"7/17/2025, 9:51:42 AM"`| -->
 
 ### Converting between data types
 
 Let's start a new running Temporal object example in your console:
 
 ```javascript
-let dateString = "2025-07-17"
+// let dateString = "2025-07-17"
 ```
 
 Here are some ways to convert the String data assigned to `dateString` to a `Temporal` object.
 
 | OG Type | Conversion | Output  |
 |---------|------------|---------|
-| String: `dateString` as `"2025-07-17"`  | `let plainDate = Temporal.PlainDate.from(dateString)`  | Temporal.PlainDate `2025-07-17`|
-| `plainDate` as Temporal PlainDate `2025-07-17`.<br><br>But need Time too.  | *Using midnight hour as default is a common move during data processing and analysis work, when the time info is missing*.<br><br>`let dateTime = datePD.toPlainDateTime(Temporal.PlainTime.from({ hour: 12 }))`  | Temporal.PlainDateTime `2025-07-17T12:00:00`|
+<!-- | String: `dateString` as `"2025-07-17"`  | `let plainDate = Temporal.PlainDate.from(dateString)`  | Temporal.PlainDate `2025-07-17`|
+| `plainDate` as Temporal PlainDate `2025-07-17`.<br><br>But need Time too.  | *Using midnight hour as default is a common move during data processing and analysis work, when the time info is missing*.<br><br>`let dateTime = datePD.toPlainDateTime(Temporal.PlainTime.from({ hour: 12 }))`  | Temporal.PlainDateTime `2025-07-17T12:00:00`| -->
 
 ## 1.7.3 Working with dates in D3.js
 
@@ -193,7 +193,7 @@ yarn remove enterPackageName
 
 To use the dependencies, i.e., other peoples' code in our project, we need to import them. Depending upon what programming language environment and technology stack you are using, there are different ways to do so. In our case, we will use the following approach with an `import` `from` expression.
 
-```javascript
+```js
 /**
   * Tells Observable Framework and Node.js
   * to import two methods from D3.js'
@@ -371,12 +371,16 @@ Here are some tips to consider as you complete this exercise.
 <p class="tip"><strong>Isolate interested parts of data</strong>: If dates are important to the inquiry, remember that the dates are stored as Strings in the following format: <code>"10/24/2024"</code>, i.e.,<code>"mm/dd/YYYY"</code>.</p>
 
 <!-- E1 -->
-```javascript
-// Convert and code here
+```js
+let ballotsWithDateObjs = nc2024SampleVoters.map(
+(ballot) => 
+{ballot.ballot_req_dt_obj = utcParse("%d/%m/%Y")
+return ballot
+}
+)
 ```
 
-```javascript
-// Convert and output
+```js
 ballotsWithDateObjs
 ```
 
@@ -385,11 +389,16 @@ ballotsWithDateObjs
 **Goal**: Use `.map()` to loop through the updated array of objects, `ballotsWithDateObjs`, and create a new array of objects called `updatedBallots`. In the new `updatedBallots`, use `d3.utcFormat()` to assign a converted and formatted version of `ballot_req_dt_obj` with the following date ***format***: Wed., January 27, 1981.
 
 <!-- E2 -->
-```javascript
-// Convert and code here
+```js
+let updatedBallots = ballotsWithDateObjs.map(
+  (ballots) => {
+    ballots.ballot_req_dt_obj = formatPrettyDate(ballots.ballot_req_dt_obj)
+    return ballots
+  }
+)
 ```
 
-```javascript
+```js
 // Convert and output updatedBallots here
 updatedBallots
 ```
