@@ -57,10 +57,10 @@ A common conditional will consist of three lines:
     ```
 
 The latest JS has some formatting tricks with conditionals. For example, you can also remove the curly braces:
-
+<!-- 
 ```js
 if (beyonce == "Grammy award-winner") console.log("Congratulations, Beyonce!")
-```
+``` -->
 
 ```javascript
 if (beyonce == "Grammy award-winner") console.log("Congratulations, Beyonce!")
@@ -80,7 +80,7 @@ You can add even more complexity in a conditional by adding an `else` statement.
 
 An `else` comes after an `if` statement and should be formatted it the same way.
 
-```js
+<!-- ```js
 let beyonceCheck = "Grammy award-winner"
 beyonceCheck = "not a Grammy award-winner this year"
 
@@ -90,7 +90,7 @@ if (beyonceCheck == "Grammy award-winner") {
 else {
   console.log("They messed up, Beyonce.")
 }
-```
+``` -->
 
 ```javascript
 let beyonceCheck = "Grammy award-winner"
@@ -123,7 +123,7 @@ else {
   console.log("They messed up, Beyonce.")
 }
 ```
-
+<!-- 
 ```js
 let beyonceAwardCheck = "Grammy award-nominee"
 
@@ -136,7 +136,7 @@ else if (beyonceAwardCheck == "Grammy award-nominee") {
 else {
   console.log("They messed up, Beyonce.")
 }
-```
+``` -->
 
 ## 1.4 Exercises with Conditionals
 
@@ -175,7 +175,12 @@ if () {
 ```
 
 ```js
-// Your code here
+if (person1Age < 30) {
+  console.log("Person is less than 30 years old.")
+}
+else {
+  console.log("Person is 30 years old or older.")
+}
 ```
 
 ## E2
@@ -185,7 +190,9 @@ Write an `if` statement that reports whether `person1Profession` is `"married"`.
 Use the following console log, when the condition is `true`: `console.log("Person is married.")`
 
 ```js
-// Your code here
+   if (person1Profession == "married") {
+     console.log("Person is married")
+   }
 ```
 
 ## E3
@@ -195,7 +202,9 @@ Write an `if` statement that reports whether `person1Age` is less than 30 years 
 Use the following console log, when the condition is `true`: `console.log("Person is less than 30 years old and married.")`
 
 ```js
-// Your code here
+  if(person1Age < 30 && person1Profession == "married") {
+    console.log("Person is less than 30 years old and married.")
+  }
 ```
 
 ## E4
@@ -228,7 +237,12 @@ Use the following console logs:
 - For `else`: `console.log('Person is more than 30 years old.')`
 
 ```js
-// Your code here
+if(person2Age < 30){
+  console.log("Person is less than 30 years old.")
+}
+else {
+  console.log("Person is more than 30 years old.")
+}
 ```
 
 ## E5 - ELSE IF time!
@@ -237,7 +251,7 @@ Ok, even more variables!
 
 ```javascript
 let person3Name = 'Margaret Farrell'
-let personAage = 30
+let person3Age = 30
 let person3Disease = 'recent emigrant'
 let person3Profession = 'widow'
 let person3Gender = 'w'
@@ -246,7 +260,7 @@ let person3ChildStatus = ''
 
 ```js
 let person3Name = 'Margaret Farrell'
-let personAage = 30
+let person3Age = 30
 let person3Disease = 'recent emigrant'
 let person3Profession = 'widow'
 let person3Gender = 'w'
@@ -262,7 +276,15 @@ Use the following console logs:
 - `else`: `console.log('Person is more than 30 years old.')`
 
 ```js
-// Your code here
+if(person3Age < 30) {
+  console.log('Person is less than 30 years old.')
+}
+else if(person3Age == 30) {
+  console.log('Person is exactly 30 years old.')
+}
+else {
+  console.log('Person is more than 30 years old.')
+}
 ```
 
 ## E6 - Conditional with numbers and an object!
@@ -290,7 +312,9 @@ Write an `if` statement that will report whether `childrenTotal['person1']` has 
 Use the following console log, when `if` is `true`: `console.log('Person has children.')`.
 
 ```js
-// Your code here
+if (childrenTotal.person1 != 0) {
+  console.log('Person has children.')
+}
 ```
 
 ## E7
@@ -312,7 +336,12 @@ if (childrenTotal['person2']) {
 ```
 
 ```js
-// Your code here
+if (childrenTotal.person1 != 0) {
+  console.log('Person has children.')
+}
+if (childrenTotal.person2 != 0) {
+  console.log('Person has children.')
+}
 ```
 
 ## E8
@@ -345,7 +374,18 @@ let person1 = {
   profession: "married"
 }
 
-// Your code here
+if (person1.profession == "married") {
+  console.log('Person is married.')
+}
+else if(person1.profession == "laborer"){
+  console.log('Person is a laborer.')
+}
+else if(person1.profession == "widow") {
+  console.log('Person is a widow.')
+}
+else{
+  console.log('Person has unknown profession.')
+}
 ```
 
 ### E8.1 Change to laborer
@@ -370,7 +410,22 @@ person1['profession'] = "laborer"
 ```
 
 ```js
-// Your code here
+let person1 = {
+  profession: "laborer"
+}
+
+if (person1.profession == "married") {
+  console.log('Person is married.')
+}
+else if(person1.profession == "laborer"){
+  console.log('Person is a laborer.')
+}
+else if(person1.profession == "widow") {
+  console.log('Person is a widow.')
+}
+else{
+  console.log('Person has unknown profession.')
+}
 ```
 
 ### E8.2 Change to student
@@ -395,7 +450,22 @@ person1['profession'] = "student"
 ```
 
 ```js
-// Your code here
+let person1 = {
+  profession: "student"
+}
+
+if (person1.profession == "married") {
+  console.log('Person is married.')
+}
+else if(person1.profession == "laborer"){
+  console.log('Person is a laborer.')
+}
+else if(person1.profession == "widow") {
+  console.log('Person is a widow.')
+}
+else{
+  console.log('Person has unknown profession.')
+}
 ```
 
 ## Submission
